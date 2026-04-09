@@ -5,29 +5,65 @@ import { ChevronDown, Sparkles, Phone, Navigation, Clock, MapPin, MessageCircle,
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
   const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.97]);
 
   return (
     <section id="anasayfa" className="relative h-screen w-full overflow-hidden">
-      {/* Background */}
-      <motion.div className="absolute inset-0" style={{ y: backgroundY }}>
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/beauty/hero.jpg)' }} />
-        {/* Asymmetric gradient overlay */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(15,27,45,0.92) 0%, rgba(22,37,68,0.7) 40%, rgba(26,45,74,0.4) 70%, rgba(30,52,85,0.3) 100%)' }} />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0f1b2d] to-transparent" />
-      </motion.div>
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse at 20% 50%, rgba(255,107,107,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,212,59,0.1) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(22,37,68,0.8) 0%, transparent 60%), linear-gradient(180deg, #0a1628 0%, #0f1b2d 30%, #162544 60%, #1a2d4a 100%)',
+      }} />
 
-      {/* Geometric accent - top right circle */}
+      {/* Animated mesh lines */}
+      <div className="absolute inset-0 overflow-hidden opacity-[0.03]">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent" />
+        <div className="absolute top-0 left-2/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent" />
+        <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent" />
+        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+        <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      </div>
+
+      {/* Coral glow orb */}
       <motion.div
-        className="absolute top-32 right-8 sm:right-16 w-24 h-24 sm:w-36 sm:h-36 rounded-full border border-coral/10 spin-slow"
+        className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-coral/8 blur-[100px]"
+        animate={{ x: [0, 30, -20, 0], y: [0, -20, 30, 0] }}
+        transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      {/* Gold glow orb */}
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-48 sm:w-72 h-48 sm:h-72 rounded-full bg-gold/5 blur-[80px]"
+        animate={{ x: [0, -25, 15, 0], y: [0, 25, -15, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Geometric accents */}
+      <motion.div
+        className="absolute top-24 right-8 sm:right-20 w-32 h-32 sm:w-52 sm:h-52 rounded-full border border-coral/10 spin-slow"
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }}
       />
       <motion.div
-        className="absolute top-40 right-16 sm:right-24 w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-gold/8"
+        className="absolute top-36 right-16 sm:right-28 w-20 h-20 sm:w-32 sm:h-32 rounded-full border border-gold/8"
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2, duration: 1 }}
       />
+      <motion.div
+        className="absolute bottom-1/3 left-8 sm:left-16 w-16 h-16 rounded-full border border-white/5 spin-slow"
+        style={{ animationDirection: 'reverse' }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5, duration: 1 }}
+      />
+      {/* Small diamond */}
+      <motion.div
+        className="absolute top-1/3 left-[15%] w-3 h-3 rotate-45 bg-coral/20 rounded-sm"
+        animate={{ y: [0, -10, 0], opacity: [0.2, 0.5, 0.2] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 right-[12%] w-2 h-2 rotate-45 bg-gold/30 rounded-sm"
+        animate={{ y: [0, 8, 0], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0f1b2d] to-transparent" />
 
       {/* Main Content */}
       <motion.div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4" style={{ scale: contentScale }}>

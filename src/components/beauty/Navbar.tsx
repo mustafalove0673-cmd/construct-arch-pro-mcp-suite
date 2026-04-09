@@ -37,8 +37,8 @@ export default function Navbar() {
           className="absolute inset-0 border-b border-rose/10"
           style={{
             opacity: bgOpacity,
-            backdropFilter: blur(20),
-            WebkitBackdropFilter: blur(20),
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
             background: 'rgba(253, 246, 240, 0.92)',
           }}
         />

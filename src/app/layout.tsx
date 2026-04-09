@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lumière Beauty | Premium Güzellik Merkezi",
-  description: "Premium kadın güzellik merkezi. Saç bakımı, cilt bakımı, makyaj, manikür, spa ve daha fazlası. Kendinizi özel hissedin.",
+  title: "İpek Özmel Güzellik Merkezi | Premium Güzellik Hizmetleri",
+  description: "İpek Özmel Güzellik Merkezi - Premium kadın güzellik hizmetleri. Saç bakımı, cilt bakımı, makyaj, manikür, spa ve daha fazlası. Kendinizi özel hissedin.",
   keywords: ["güzellik merkezi", "beauty salon", "saç bakımı", "cilt bakımı", "makyaj", "spa", "manikür"],
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",

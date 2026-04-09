@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env.local
+.env.production
 
 # vercel
 .vercel
@@ -46,9 +48,27 @@ local-*
 *.log
 dev.log
 dev.out.log
+server.log
 test
 prompt
 
-server.log
+# Upload directory
+/upload/
+
+# Database
+/db/
+
+# Mini services
+/mini-services/
+
+# Examples
+/examples/
+
 # Skills directory
 /skills/
+
+# Z scripts
+/.zscripts/
+
+# Prisma
+/prisma/

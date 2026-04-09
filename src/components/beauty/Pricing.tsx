@@ -158,24 +158,16 @@ function PackageCard({ pkg, index }: { pkg: typeof packages[0]; index: number })
 
           {/* Features */}
           <div className="space-y-2 mb-5">
-            {pkg.features.map((feat, i) => (
-              <motion.div
+            {pkg.features.map((feat) => (
+              <div
                 key={feat}
                 className="flex items-center gap-2.5"
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + i * 0.06 }}
               >
-                <motion.div
-                  className="w-5 h-5 rounded-full bg-rose/10 flex items-center justify-center flex-shrink-0"
-                  whileHover={{ rotate: 360, scale: 1.3 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <div className="w-5 h-5 rounded-full bg-rose/10 flex items-center justify-center flex-shrink-0">
                   <Check className="w-2.5 h-2.5 text-rose" />
-                </motion.div>
+                </div>
                 <span className="text-sm text-plum/60">{feat}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -217,18 +209,6 @@ export default function Pricing() {
 
   return (
     <section id="fiyatlar" className="relative py-16 md:py-24 overflow-hidden" ref={sectionRef}>
-      {/* Background effects */}
-      <motion.div
-        className="absolute top-20 right-10 w-48 h-48 bg-rose/5 morph-shape"
-        animate={{ y: [0, -20, 0], rotate: [0, 15, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute bottom-20 left-10 w-36 h-36 bg-gold-beauty/5 morph-shape"
-        animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">

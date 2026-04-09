@@ -105,12 +105,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         </div>
       </div>
 
-      {/* Decorative corner */}
-      <motion.div
-        className="absolute -bottom-1 -right-1 w-10 h-10 bg-rose/5 rounded-full"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
-      />
+
     </motion.div>
   );
 }
@@ -121,18 +116,6 @@ export default function Services() {
 
   return (
     <section id="hizmetler" className="relative py-16 md:py-24 overflow-hidden animated-gradient-bg" ref={sectionRef}>
-      {/* Floating shapes */}
-      <motion.div
-        className="absolute top-16 left-8 w-14 h-14 bg-rose/10 morph-shape"
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute bottom-16 right-8 w-12 h-12 bg-gold-beauty/10 morph-shape"
-        animate={{ y: [0, 15, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">

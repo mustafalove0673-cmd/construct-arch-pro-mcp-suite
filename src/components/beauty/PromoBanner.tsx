@@ -60,23 +60,6 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
         transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
         whileHover={{ scale: 1.01, y: -2 }}
       >
-        {/* Animated background shapes */}
-        <motion.div
-          className={`absolute -top-8 -right-8 w-32 h-32 ${isLight ? 'bg-white/10' : 'bg-white/5'} rounded-full`}
-          animate={{ scale: [1, 1.3, 1], x: [0, 10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className={`absolute -bottom-6 -left-6 w-24 h-24 ${isLight ? 'bg-white/10' : 'bg-white/5'} morph-shape`}
-          animate={{ y: [0, 10, 0], rotate: [0, 10, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className={`absolute top-1/2 left-1/4 w-16 h-16 ${isLight ? 'bg-white/5' : 'bg-white/3'} rounded-full`}
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        />
-
         {/* Shine sweep */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"
@@ -137,21 +120,7 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
           )}
         </div>
 
-        {/* Sparkle decorations */}
-        <motion.div
-          className="absolute top-3 right-20 text-white/20"
-          animate={{ opacity: [0.2, 0.8, 0.2], scale: [0.8, 1.2, 0.8], rotate: [0, 180, 360] }}
-          transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-        >
-          <Sparkles className="w-5 h-5" />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-3 left-20 text-white/15"
-          animate={{ opacity: [0.1, 0.6, 0.1], scale: [1, 1.3, 1] }}
-          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-        >
-          <Star className="w-4 h-4" />
-        </motion.div>
+
       </motion.div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MapPin, Phone, Clock, Star, Flower2, Instagram, MessageCircle, Navigation, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Clock, Star, Flower2, Instagram, MessageCircle, Navigation, ExternalLink, Mail } from 'lucide-react';
 
 const contactCards = [
   {
@@ -29,6 +29,13 @@ const contactCards = [
     title: 'Değerlendirme',
     lines: ['⭐ 4.7 puan', '1.172 Google yorumu'],
     color: 'from-green-100/50 to-green-50/50',
+  },
+  {
+    icon: Mail,
+    title: 'E-Posta',
+    lines: ['ipekozmelresmi@gmail.com'],
+    href: 'mailto:ipekozmelresmi@gmail.com',
+    color: 'from-purple-100/50 to-purple-50/50',
   },
 ];
 
@@ -104,7 +111,7 @@ export default function Contact() {
 
         {/* Action Buttons */}
         <motion.div
-          className="grid grid-cols-3 gap-3 mb-8"
+          className="grid grid-cols-4 gap-3 mb-8"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5 }}
@@ -139,6 +146,15 @@ export default function Contact() {
           >
             <Navigation className="w-4 h-4" />
             <span className="hidden sm:inline">Yol Tarifi</span>
+          </motion.a>
+          <motion.a
+            href="mailto:ipekozmelresmi@gmail.com"
+            className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold text-xs uppercase tracking-wider rounded-xl shadow-md shadow-purple-500/20"
+            whileHover={{ scale: 1.03, boxShadow: '0 10px 25px rgba(168,85,247,0.35)' }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <Mail className="w-4 h-4" />
+            <span className="hidden sm:inline">E-Posta</span>
           </motion.a>
         </motion.div>
 

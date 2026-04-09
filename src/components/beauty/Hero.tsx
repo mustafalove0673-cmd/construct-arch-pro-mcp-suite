@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronDown, Sparkles, Phone, Navigation, Clock, Star, MapPin, MessageCircle, ExternalLink } from 'lucide-react';
+import { ChevronDown, Sparkles, Phone, Navigation, Clock, Star, MapPin, MessageCircle, ExternalLink, Mail } from 'lucide-react';
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
@@ -9,23 +9,22 @@ export default function Hero() {
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.35, 0.7]);
   const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.97]);
 
-  const floatingPetals = Array.from({ length: 10 }).map((_, i) => ({
+  const floatingPetals = Array.from({ length: 3 }).map((_, i) => ({
     id: i,
-    x: `${10 + Math.random() * 80}%`,
-    y: `${5 + Math.random() * 90}%`,
-    size: 8 + Math.random() * 18,
-    delay: Math.random() * 6,
-    duration: 4 + Math.random() * 6,
+    x: `${15 + i * 30}%`,
+    y: `${20 + i * 25}%`,
+    size: 10 + i * 4,
+    delay: i * 2,
+    duration: 5 + i,
     color: i % 3 === 0 ? 'bg-rose/25' : i % 3 === 1 ? 'bg-gold-beauty/20' : 'bg-rose-light/20',
   }));
 
-  const sparkles = Array.from({ length: 15 }).map((_, i) => ({
+  const sparkles = Array.from({ length: 4 }).map((_, i) => ({
     id: i,
-    x: `${3 + Math.random() * 94}%`,
-    y: `${3 + Math.random() * 94}%`,
-    size: 3 + Math.random() * 8,
-    delay: Math.random() * 4,
-    duration: 1.5 + Math.random() * 2,
+    x: `${10 + i * 25}%`,
+    y: `${15 + i * 20}%`,
+    size: 4 + i,
+    delay: i * 1.2,
   }));
 
   return (
@@ -77,49 +76,25 @@ export default function Hero() {
         />
       ))}
 
-      {/* Sparkles */}
+      {/* Sparkles - CSS only */}
       {sparkles.map((sparkle) => (
-        <motion.div
+        <div
           key={sparkle.id}
-          className="absolute"
-          style={{ left: sparkle.x, top: sparkle.y }}
+          className="absolute twinkle"
+          style={{
+            left: sparkle.x,
+            top: sparkle.y,
+            animationDelay: `${sparkle.delay}s`,
+          }}
         >
-          <motion.div
-            animate={{ opacity: [0, 1, 0], scale: [0.3, 1.4, 0.3] }}
-            transition={{
-              duration: sparkle.duration,
-              repeat: Infinity,
-              delay: sparkle.delay,
-              ease: 'easeInOut',
-            }}
-          >
-            <Sparkles
-              className="text-gold-beauty/40"
-              style={{ width: sparkle.size, height: sparkle.size }}
-            />
-          </motion.div>
-        </motion.div>
+          <Sparkles
+            className="text-gold-beauty/40"
+            style={{ width: sparkle.size, height: sparkle.size }}
+          />
+        </div>
       ))}
 
-      {/* Decorative rotating circle */}
-      <motion.div
-        className="absolute top-16 left-6 sm:left-12 w-20 h-20 sm:w-28 sm:h-28 border border-white/10 rounded-full"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-      >
-        <motion.div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-rose rounded-full"
-          animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-      </motion.div>
 
-      {/* Decorative diamond */}
-      <motion.div
-        className="absolute bottom-32 right-6 sm:right-12 w-16 h-16 sm:w-24 sm:h-24 border border-gold-beauty/20 rotate-45"
-        animate={{ scale: [1, 1.1, 1], rotate: [45, 55, 45] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      />
 
       {/* Main Content */}
       <motion.div
@@ -231,6 +206,17 @@ export default function Hero() {
             <MessageCircle className="w-4 h-4" />
             WhatsApp
           </motion.a>
+
+          {/* Email */}
+          <motion.a
+            href="mailto:ipekozmelresmi@gmail.com"
+            className="flex items-center gap-2 px-6 py-3.5 bg-purple-500/90 text-white font-semibold text-sm uppercase tracking-wider rounded-full hover:bg-purple-500 transition-colors shadow-lg shadow-purple-500/20"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Mail className="w-4 h-4" />
+            E-Posta
+          </motion.a>
         </motion.div>
 
         {/* Quick Info Pills */}
@@ -281,19 +267,10 @@ export default function Hero() {
               href="https://maps.google.com/?q=İpek+Özmel+Güzellik+Merkezi+Aksaray"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden flex-shrink-0 border border-rose/10 group"
+              className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden flex-shrink-0 border border-rose/10 bg-gradient-to-br from-rose/10 to-gold-beauty/10 flex items-center justify-center group"
               whileHover={{ scale: 1.05 }}
             >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.5!2d34.0256!3d38.3715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDIyJzE3LjQiTiAzNMKwMDEnMzIuMiJF!5e0!3m2!1str!2str!4v1700000000000"
-                className="absolute inset-0 w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-500"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Harita"
-              />
-              <div className="absolute inset-0 bg-plum/0 group-hover:bg-plum/10 transition-colors flex items-center justify-center">
-                <Navigation className="w-5 h-5 text-rose opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
+              <Navigation className="w-6 h-6 text-rose group-hover:text-rose-dark transition-colors" />
             </motion.a>
 
             {/* Info */}

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Flower2, Sparkles, Camera } from 'lucide-react';
+import { Flower2, Camera } from 'lucide-react';
 
 interface ImageShowcaseProps {
   images: string[];
@@ -100,26 +100,14 @@ export default function ImageShowcase({ images, title, subtitle, reversed = fals
                   viewport={{ once: true }}
                   transition={{ delay: 0.8 + i * 0.3, duration: 0.8 }}
                 />
-                {/* Sparkle corner */}
-                <motion.div
-                  className="absolute top-2 right-2 text-rose/0 group-hover:text-rose/30 transition-colors"
-                  animate={{ rotate: [0, 180, 360], scale: [0.8, 1.2, 0.8] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: i * 2 }}
-                >
-                  <Sparkles className="w-4 h-4" />
-                </motion.div>
+
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Background decorative shape */}
-      <motion.div
-        className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-64 h-32 bg-rose/3 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
+
     </div>
   );
 }

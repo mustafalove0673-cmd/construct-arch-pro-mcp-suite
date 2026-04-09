@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Flower2, Phone, MapPin, Clock, Star, ChevronRight, X, Navigation, MessageCircle } from 'lucide-react';
+import { Flower2, Phone, MapPin, Clock, Star, ChevronRight, X, Navigation, MessageCircle, Mail } from 'lucide-react';
 
 const navLinks = [
   { href: '#anasayfa', label: 'Ana Sayfa' },
@@ -265,6 +265,16 @@ export default function Navbar() {
                 >
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp
+                </motion.a>
+                <motion.a
+                  href="mailto:ipekozmelresmi@gmail.com"
+                  className="flex items-center justify-center gap-3 py-3 border-2 border-purple-400/40 text-purple-600 font-bold text-base uppercase tracking-wider rounded-xl"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsMobileOpen(false)}
+                >
+                  <Mail className="w-4 h-4" />
+                  E-Posta
                 </motion.a>
               </motion.div>
             </div>

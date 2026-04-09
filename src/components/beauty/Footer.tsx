@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Flower2, Heart, ArrowUp, Instagram, Facebook, Phone, MapPin, Clock, Star, Navigation, MessageCircle } from 'lucide-react';
+import { Flower2, Heart, ArrowUp, Instagram, Facebook, Phone, MapPin, Clock, Star, Navigation, MessageCircle, Mail } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Ana Sayfa', href: '#anasayfa' },
@@ -112,6 +112,15 @@ export default function Footer() {
               >
                 <Instagram className="w-3.5 h-3.5" />
               </motion.a>
+              <motion.a
+                href="mailto:ipekozmelresmi@gmail.com"
+                className="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/20 flex items-center justify-center text-purple-400 hover:bg-purple-500/30 transition-all"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="E-Posta"
+              >
+                <Mail className="w-3.5 h-3.5" />
+              </motion.a>
             </div>
           </div>
 
@@ -177,6 +186,12 @@ export default function Footer() {
               <li className="flex items-start gap-1.5">
                 <Clock className="w-3 h-3 text-rose/60 flex-shrink-0 mt-0.5" />
                 Her gün 09:00 – 21:00
+              </li>
+              <li className="flex items-start gap-1.5">
+                <Mail className="w-3 h-3 text-rose/60 flex-shrink-0 mt-0.5" />
+                <motion.a href="mailto:ipekozmelresmi@gmail.com" className="hover:text-rose transition-colors">
+                  ipekozmelresmi@gmail.com
+                </motion.a>
               </li>
               <li className="flex items-start gap-1.5">
                 <Star className="w-3 h-3 text-gold-beauty/60 flex-shrink-0 mt-0.5" />

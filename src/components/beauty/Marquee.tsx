@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Flower2 } from 'lucide-react';
 
 const words = [
@@ -30,11 +29,7 @@ export default function Marquee() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose/30 to-transparent" />
 
       <div className="flex whitespace-nowrap hover:[animation-play-state:paused]">
-        <motion.div
-          className="flex items-center gap-8 marquee-scroll"
-          animate={{ x: [0, -2400] }}
-          transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
-        >
+        <div className="flex items-center gap-8 marquee-scroll">
           {[...words, ...words].map((word, i) => (
             <span key={i} className="inline-flex items-center gap-4">
               <span className="text-lg sm:text-xl md:text-2xl font-light tracking-widest uppercase text-plum/30 hover:text-rose-dark transition-colors duration-300 cursor-default">
@@ -43,7 +38,7 @@ export default function Marquee() {
               <Flower2 className="w-3 h-3 text-rose/30 rotate-45" />
             </span>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

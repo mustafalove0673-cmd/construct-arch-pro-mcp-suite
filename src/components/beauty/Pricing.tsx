@@ -51,15 +51,15 @@ const plans = [
 function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) {
   return (
     <motion.div
-      className={`relative bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 overflow-hidden ${
-        plan.popular ? 'md:-my-4 md:py-12 shadow-2xl' : ''
+      className={`relative bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-5 overflow-hidden ${
+        plan.popular ? 'sm:-my-2 sm:shadow-xl' : ''
       }`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ delay: index * 0.15, duration: 0.6, type: 'spring', stiffness: 100 }}
       whileHover={{
-        y: -10,
+        y: -6,
         boxShadow: plan.popular
           ? '0 30px 60px rgba(232, 160, 191, 0.3)'
           : '0 20px 40px rgba(232, 160, 191, 0.15)',
@@ -68,7 +68,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
       {/* Popular card gradient border */}
       {plan.popular && (
         <motion.div
-          className="absolute inset-0 rounded-3xl p-[2px]"
+          className="absolute inset-0 rounded-2xl p-[2px]"
           style={{
             background: 'linear-gradient(135deg, #e8a0bf, #c8a96e, #e8a0bf, #c8a96e)',
             backgroundSize: '300% 300%',
@@ -98,20 +98,20 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
         )}
 
         {/* Plan Name */}
-        <h3 className="text-xl sm:text-2xl font-bold text-plum text-center mb-2 mt-2">
+        <h3 className="text-base sm:text-lg font-bold text-plum text-center mb-1 mt-1">
           {plan.name}
         </h3>
 
         {/* Price */}
-        <div className="text-center mb-8">
-          <span className="text-4xl sm:text-5xl font-bold shimmer-text-rose">
+        <div className="text-center mb-4">
+          <span className="text-2xl sm:text-3xl font-bold shimmer-text-rose">
             {plan.price}
           </span>
           <span className="text-plum/40 text-lg">₺</span>
         </div>
 
         {/* Features */}
-        <div className="space-y-3 mb-8">
+        <div className="space-y-2 mb-4">
           {plan.features.map((feat, i) => (
             <motion.div
               key={feat}
@@ -136,7 +136,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
         {/* CTA Button */}
         <motion.a
           href="#randevu"
-          className={`block w-full py-3.5 rounded-full text-center font-semibold text-sm uppercase tracking-wider transition-colors ${
+          className={`block w-full py-2.5 rounded-full text-center font-semibold text-xs uppercase tracking-wider transition-colors {
             plan.popular
               ? 'bg-gradient-to-r from-rose to-rose-dark text-white'
               : 'border-2 border-rose/30 text-rose-dark hover:bg-rose hover:text-white'
@@ -162,7 +162,7 @@ export default function Pricing() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section id="fiyatlar" className="relative py-20 md:py-32 overflow-hidden" ref={sectionRef}>
+    <section id="fiyatlar" className="relative py-16 md:py-24 overflow-hidden" ref={sectionRef}>
       {/* Dot pattern background */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -180,7 +180,7 @@ export default function Pricing() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.div
             className="flex items-center justify-center gap-3 mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -193,7 +193,7 @@ export default function Pricing() {
           </motion.div>
 
           <motion.h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
@@ -202,7 +202,7 @@ export default function Pricing() {
           </motion.h2>
 
           <motion.div
-            className="ornament-divider max-w-xs mx-auto"
+            className="ornament-divider max-w-[200px] mx-auto"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
@@ -212,7 +212,7 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-center max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-3 gap-3 lg:gap-4 items-stretch max-w-3xl mx-auto">
           {plans.map((plan, i) => (
             <PricingCard key={plan.name} plan={plan} index={i} />
           ))}

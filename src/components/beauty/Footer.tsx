@@ -9,16 +9,10 @@ const quickLinks = [
   { label: 'Hizmetler', href: '#hizmetler' },
   { label: 'Galeri', href: '#galeri' },
   { label: 'Fiyatlar', href: '#fiyatlar' },
-  { label: 'Yorumlar', href: '#yorumlar' },
 ];
 
 const serviceLinks = [
-  'Saç Bakım & Kesim',
-  'Cilt Bakımı',
-  'Profesyonel Makyaj',
-  'Nail Art & Manikür',
-  'Spa & Masaj',
-  'Saç Boyama',
+  'Saç Bakım', 'Cilt Bakımı', 'Makyaj', 'Nail Art', 'Spa', 'Boya',
 ];
 
 const socialLinks = [
@@ -36,52 +30,51 @@ export default function Footer() {
     <footer className="relative bg-plum-dark text-white overflow-hidden">
       {/* Animated gradient top border */}
       <motion.div
-        className="h-1"
+        className="h-0.5"
         style={{
-          background: 'linear-gradient(90deg, #e8a0bf, #c8a96e, #e8a0bf, #c8a96e, #e8a0bf)',
+          background: 'linear-gradient(90deg, #e8a0bf, #c8a96e, #e8a0bf, #c8a96e)',
           backgroundSize: '200% 100%',
         }}
         animate={{ backgroundPosition: ['0% 0%', '200% 0%'] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Logo & Description */}
-          <div className="sm:col-span-2 lg:col-span-1">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {/* Logo */}
+          <div>
             <motion.a
               href="#anasayfa"
-              className="flex items-center gap-3 mb-4 group"
+              className="flex items-center gap-2.5 mb-3 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
-                className="w-10 h-10 rounded-full border-2 border-rose flex items-center justify-center bg-rose/10"
+                className="w-9 h-9 rounded-full border-2 border-rose flex items-center justify-center bg-rose/10"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.8 }}
               >
-                <Flower2 className="w-5 h-5 text-rose" />
+                <Flower2 className="w-4 h-4 text-rose" />
               </motion.div>
               <div>
-                <span className="shimmer-text-rose font-bold text-xl block">Lumière</span>
-                <span className="text-rose/40 text-[10px] tracking-[0.3em] uppercase">Beauty Center</span>
+                <span className="shimmer-text-rose font-bold text-lg block leading-tight">Lumière</span>
+                <span className="text-rose/40 text-[9px] tracking-[0.2em] uppercase">Beauty Center</span>
               </div>
             </motion.a>
-            <p className="text-white/40 text-sm leading-relaxed mb-6">
-              25 yılı aşkın deneyimimizle kadınların güzelliğine dokunuyoruz. Premium hizmet ve konforlu ortam.
+            <p className="text-white/35 text-xs leading-relaxed mb-4">
+              25+ yıl deneyim. Premium güzellik hizmeti.
             </p>
-            {/* Social links */}
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
                   href="#"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-rose hover:border-rose/30 hover:bg-rose/10 transition-all"
-                  whileHover={{ scale: 1.15, y: -3 }}
+                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-rose hover:border-rose/30 hover:bg-rose/10 transition-all"
+                  whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={social.label}
                 >
-                  <social.icon className="w-4 h-4" />
+                  <social.icon className="w-3.5 h-3.5" />
                 </motion.a>
               ))}
             </div>
@@ -89,17 +82,17 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-white/80 uppercase tracking-wider text-sm mb-5 flex items-center gap-2">
-              <div className="w-6 h-px bg-rose" />
-              Hızlı Linkler
+            <h4 className="font-bold text-white/70 uppercase tracking-wider text-xs mb-3 flex items-center gap-2">
+              <div className="w-5 h-px bg-rose" />
+              Linkler
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <motion.a
                     href={link.href}
-                    className="text-white/40 hover:text-rose text-sm transition-colors inline-block"
-                    whileHover={{ x: 5 }}
+                    className="text-white/35 hover:text-rose text-xs transition-colors inline-block"
+                    whileHover={{ x: 3 }}
                   >
                     {link.label}
                   </motion.a>
@@ -110,17 +103,17 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-white/80 uppercase tracking-wider text-sm mb-5 flex items-center gap-2">
-              <div className="w-6 h-px bg-rose" />
+            <h4 className="font-bold text-white/70 uppercase tracking-wider text-xs mb-3 flex items-center gap-2">
+              <div className="w-5 h-px bg-rose" />
               Hizmetler
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {serviceLinks.map((link) => (
                 <li key={link}>
                   <motion.a
                     href="#hizmetler"
-                    className="text-white/40 hover:text-rose text-sm transition-colors inline-block"
-                    whileHover={{ x: 5 }}
+                    className="text-white/35 hover:text-rose text-xs transition-colors inline-block"
+                    whileHover={{ x: 3 }}
                   >
                     {link}
                   </motion.a>
@@ -129,27 +122,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h4 className="font-bold text-white/80 uppercase tracking-wider text-sm mb-5 flex items-center gap-2">
-              <div className="w-6 h-px bg-rose" />
+            <h4 className="font-bold text-white/70 uppercase tracking-wider text-xs mb-3 flex items-center gap-2">
+              <div className="w-5 h-px bg-rose" />
               İletişim
             </h4>
-            <ul className="space-y-3 text-sm text-white/40">
-              <li className="flex items-start gap-2">
-                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-rose flex-shrink-0" />
-                Bağdat Cad. No: 42, Kadıköy, İstanbul
+            <ul className="space-y-2 text-xs text-white/35">
+              <li className="flex items-start gap-1.5">
+                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
+                Bağdat Cad. No: 42, Kadıköy
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-rose flex-shrink-0" />
+              <li className="flex items-start gap-1.5">
+                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
                 0212 555 12 34
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-rose flex-shrink-0" />
+              <li className="flex items-start gap-1.5">
+                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
                 info@lumierebeauty.com
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-rose flex-shrink-0" />
+              <li className="flex items-start gap-1.5">
+                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
                 Pzt - Cmt: 09:00 - 19:00
               </li>
             </ul>
@@ -157,23 +150,20 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom bar - compact */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/25 text-xs flex items-center gap-1">
-            © 2024 Lumière Beauty Center. Tüm hakları saklıdır.{' '}
-            <Heart className="w-3 h-3 text-rose/40 inline" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+          <p className="text-white/20 text-[11px] flex items-center gap-1">
+            © 2024 Lumière Beauty. <Heart className="w-2.5 h-2.5 text-rose/30 inline" />
           </p>
-
-          {/* Back to top */}
           <motion.button
-            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-rose hover:border-rose/30 hover:bg-rose/10 transition-all"
+            className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/35 hover:text-rose hover:border-rose/30 transition-all"
             onClick={scrollToTop}
-            whileHover={{ scale: 1.1, y: -3 }}
+            whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
-            aria-label="Yukarı Çık"
+            aria-label="Yukarı"
           >
-            <ArrowUp className="w-4 h-4" />
+            <ArrowUp className="w-3.5 h-3.5" />
           </motion.button>
         </div>
       </div>

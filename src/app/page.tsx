@@ -13,6 +13,7 @@ import Booking from '@/components/beauty/Booking';
 import Contact from '@/components/beauty/Contact';
 import Footer from '@/components/beauty/Footer';
 import FloatingDecorations from '@/components/beauty/FloatingDecorations';
+import PromoBanner from '@/components/beauty/PromoBanner';
 
 export default function Home() {
   return (
@@ -22,12 +23,71 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Marquee />
+
+        {/* Promo 1: Yeni Müşteri */}
+        <PromoBanner
+          variant="rose"
+          icon="gift"
+          title="İlk Ziyaretinize %20 İndirim!"
+          subtitle="Yeni müşterilerimize özel hoş geldin fırsatı."
+          cta="Hemen Faydalan"
+        />
+
         <About />
+
+        {/* Promo 2: Kampanya */}
+        <PromoBanner
+          variant="gold"
+          icon="percent"
+          title="Bahar Kampanyası Başladı"
+          subtitle="Saç boyama + kesim birlikte sadece 280₺"
+          cta="Kampanyayı Gör"
+        />
+
         <Services />
+
+        {/* Promo 3: VIP */}
+        <PromoBanner
+          variant="plum"
+          icon="star"
+          title="VIP Üyelik Avantajları"
+          subtitle="Her ay özel indirimler ve öncelikli randevu."
+          cta="Üye Ol"
+        />
+
         <Gallery />
+
+        {/* Promo 4: Spa */}
+        <PromoBanner
+          variant="gradient"
+          icon="sparkle"
+          title="Spa & Wellness Paketi"
+          subtitle="Full spa deneyimi + çay ikramı + 1 saat masaj."
+          cta="Rezervasyon Yap"
+        />
+
         <Pricing />
         <Testimonials />
+
+        {/* Promo 5: Arkadaş */}
+        <PromoBanner
+          variant="rose"
+          icon="gift"
+          title="Arkadaşını Getir, Kazan!"
+          subtitle="Her arkadaş daveti için 100₺ indirim kazanın."
+          cta="Davet Et"
+        />
+
         <Booking />
+
+        {/* Promo 6: Son */}
+        <PromoBanner
+          variant="gold"
+          icon="clock"
+          title="Hafta Sonu Özel Saatleri"
+          subtitle="Cumartesi 10:00 - 18:00 arası ek randevu."
+        />
+
         <Contact />
         <Footer />
       </motion.div>

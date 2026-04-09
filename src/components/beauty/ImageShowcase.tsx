@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Flower2, Camera } from 'lucide-react';
+import { Sparkles, Camera } from 'lucide-react';
 
 interface ImageShowcaseProps {
   images: string[];
@@ -16,7 +16,7 @@ export default function ImageShowcase({ images, title, subtitle, reversed = fals
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <div ref={ref} className="relative py-12 md:py-16 overflow-hidden">
+    <div ref={ref} className="relative py-12 md:py-16 overflow-hidden bg-[#0a0a0a]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`grid md:grid-cols-2 gap-4 items-center ${reversed ? 'md:[direction:rtl]' : ''}`}>
           {/* Text Side */}
@@ -32,23 +32,23 @@ export default function ImageShowcase({ images, title, subtitle, reversed = fals
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
             >
-              <Camera className="w-3.5 h-3.5 text-rose" />
-              <span className="text-[10px] uppercase tracking-[0.3em] text-rose-dark font-medium">
+              <Camera className="w-3.5 h-3.5 text-[#b76e79]" />
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[#b76e79] font-medium">
                 {title}
               </span>
             </motion.div>
 
             <motion.h3
-              className="text-xl sm:text-2xl font-bold text-plum mb-2"
+              className="text-xl sm:text-2xl font-bold text-[#f5f5f5] mb-2"
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
             >
-              <span className="shimmer-text-rose">{title}</span>
+              <span className="shimmer-text-gold">{title}</span>
             </motion.h3>
 
             <motion.p
-              className="text-plum/50 text-sm mb-4"
+              className="text-[#a0a0a0] text-sm mb-4"
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 }}
@@ -63,8 +63,8 @@ export default function ImageShowcase({ images, title, subtitle, reversed = fals
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
             >
-              <div className="h-px w-12 bg-gradient-to-r from-rose to-transparent" />
-              <Flower2 className="w-3 h-3 text-rose/40" />
+              <div className="h-px w-12 bg-gradient-to-r from-[#b76e79] to-transparent" />
+              <Sparkles className="w-3 h-3 text-[#c9a84c]/40" />
             </motion.div>
           </motion.div>
 
@@ -73,13 +73,13 @@ export default function ImageShowcase({ images, title, subtitle, reversed = fals
             {images.map((img, i) => (
               <motion.div
                 key={img}
-                className="relative group rounded-xl overflow-hidden aspect-[4/3]"
+                className="relative group rounded-xl overflow-hidden aspect-[4/3] border border-white/[0.06]"
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ delay: 0.2 + i * 0.15, duration: 0.5, type: 'spring', stiffness: 100 }}
                 whileHover={{
                   y: -4,
-                  boxShadow: '0 15px 35px rgba(232, 160, 191, 0.2)',
+                  boxShadow: '0 15px 35px rgba(183, 110, 121, 0.15)',
                 }}
               >
                 <motion.img
@@ -91,23 +91,12 @@ export default function ImageShowcase({ images, title, subtitle, reversed = fals
                   loading="lazy"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-plum/20 to-transparent" />
-                {/* Shine sweep */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  initial={{ x: '-100%' }}
-                  whileInView={{ x: '100%' }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8 + i * 0.3, duration: 0.8 }}
-                />
-
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/30 to-transparent" />
               </motion.div>
             ))}
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }

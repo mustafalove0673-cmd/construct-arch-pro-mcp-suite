@@ -2,7 +2,7 @@
 
 import { motion, useInView, useMotionValue, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { Flower2, Award, Users, Heart, Star, Gem } from 'lucide-react';
+import { Sparkles, Award, Users, Heart, Star, Gem } from 'lucide-react';
 
 function AnimatedCounter({ target, duration = 2, suffix = '' }: { target: number; duration?: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -45,22 +45,14 @@ export default function About() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section id="hakkimizda" className="relative py-16 md:py-24 overflow-hidden" ref={sectionRef}>
+    <section id="hakkimizda" className="relative py-16 md:py-24 overflow-hidden bg-[#111]" ref={sectionRef}>
       {/* Background decoration */}
-      <motion.div
-        className="absolute -right-24 -top-24 w-72 h-72 bg-rose/5 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute -left-16 -bottom-16 w-60 h-60 bg-gold-beauty/5 rounded-full blur-3xl"
-        animate={{ scale: [1.1, 0.9, 1.1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-      />
+      <div className="absolute -right-24 -top-24 w-72 h-72 bg-[#b76e79]/[0.03] rounded-full blur-3xl" />
+      <div className="absolute -left-16 -bottom-16 w-60 h-60 bg-[#c9a84c]/[0.03] rounded-full blur-3xl" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Image Side - smaller */}
+          {/* Image Side */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: -50 }}
@@ -69,7 +61,7 @@ export default function About() {
           >
             {/* Morphing border */}
             <motion.div
-              className="absolute -inset-2 bg-gradient-to-br from-rose via-gold-beauty to-rose-dark opacity-25"
+              className="absolute -inset-2 bg-gradient-to-br from-[#b76e79] via-[#c9a84c] to-[#8f4a55] opacity-20"
               animate={{
                 borderRadius: [
                   '60% 40% 30% 70% / 60% 30% 70% 40%',
@@ -89,27 +81,12 @@ export default function About() {
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.6 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-plum/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/40 to-transparent" />
             </div>
-
-            {/* Falling petals */}
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute petal"
-                style={{ left: `${15 + i * 30}%`, top: '-5%' }}
-                animate={{
-                  y: [0, 400], x: [0, 20 * (i % 2 === 0 ? 1 : -1)],
-                  rotate: [0, 360 * (i % 2 === 0 ? 1 : -1)],
-                  opacity: [0, 0.6, 0],
-                }}
-                transition={{ duration: 5 + i * 2, repeat: Infinity, delay: i * 1.5, ease: 'linear' }}
-              />
-            ))}
 
             {/* VIP Badge */}
             <motion.div
-              className="absolute -bottom-3 -right-3 bg-gradient-to-br from-rose to-rose-dark text-white px-4 py-2.5 rounded-xl shadow-lg"
+              className="absolute -bottom-3 -right-3 bg-gradient-to-br from-[#b76e79] to-[#8f4a55] text-white px-4 py-2.5 rounded-xl shadow-lg shadow-[#b76e79]/20"
               initial={{ scale: 0, rotate: -15 }}
               animate={isInView ? { scale: 1, rotate: 0 } : {}}
               transition={{ delay: 0.8, type: 'spring', stiffness: 200, damping: 15 }}
@@ -132,22 +109,22 @@ export default function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.5 }}
             >
-              <Flower2 className="w-4 h-4 text-rose" />
-              <span className="text-xs uppercase tracking-[0.3em] text-rose-dark font-medium">Biz Kimiz</span>
+              <Sparkles className="w-4 h-4 text-[#b76e79]" />
+              <span className="text-xs uppercase tracking-[0.3em] text-[#b76e79] font-medium">Biz Kimiz</span>
             </motion.div>
 
             <motion.h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight"
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight text-[#f5f5f5]"
               initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6 }}
             >
               Güzelliğiniz İçin{' '}
-              <span className="shimmer-text-rose">Tutkulu</span>
+              <span className="shimmer-text-gold">Tutkulu</span>
             </motion.h2>
 
             <motion.p
-              className="text-plum/55 text-sm sm:text-base leading-relaxed mb-6"
+              className="text-[#a0a0a0] text-sm sm:text-base leading-relaxed mb-6"
               initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.7 }}
@@ -161,25 +138,25 @@ export default function About() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.8 }}
             >
-              <Flower2 className="w-3 h-3 text-rose/50" />
+              <Sparkles className="w-3 h-3 text-[#c9a84c]/50" />
             </motion.div>
 
-            {/* Stats Grid - 2x2 compact */}
+            {/* Stats Grid - 2x2 */}
             <div className="grid grid-cols-2 gap-3">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className="text-center p-3 rounded-xl bg-white/60 backdrop-blur-sm border border-rose/10 hover:border-rose/30 transition-colors"
+                  className="text-center p-3 rounded-xl bg-[#1a1a1a]/80 border border-[#b76e79]/10 hover:border-[#b76e79]/25 transition-colors"
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.9 + i * 0.1 }}
-                  whileHover={{ y: -3, boxShadow: '0 8px 20px rgba(232, 160, 191, 0.12)' }}
+                  whileHover={{ y: -3, boxShadow: '0 8px 20px rgba(183, 110, 121, 0.1)' }}
                 >
-                  <stat.icon className="w-4 h-4 text-rose mx-auto mb-1" />
-                  <span className="text-xl font-bold text-plum block leading-tight">
+                  <stat.icon className="w-4 h-4 text-[#b76e79] mx-auto mb-1" />
+                  <span className="text-xl font-bold text-[#f5f5f5] block leading-tight">
                     <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                   </span>
-                  <span className="text-[10px] sm:text-xs text-plum/50 uppercase tracking-wider">{stat.label}</span>
+                  <span className="text-[10px] sm:text-xs text-[#666] uppercase tracking-wider">{stat.label}</span>
                 </motion.div>
               ))}
             </div>

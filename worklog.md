@@ -132,3 +132,54 @@ Stage Summary:
 - ✅ Yeni işletme bilgileri tüm bileşenlere uygulandı
 - ✅ Email ve rating kaldırıldı
 - ✅ Build: Başarılı (0 hata, 3.1s compile)
+
+---
+Task ID: 2-a
+Agent: Full-Stack Developer
+Task: Complete dark luxury theme redesign for Ayşe Nur Karcı Beauty Vip
+
+Work Log:
+- Read worklog and all 14 beauty component files + layout.tsx + globals.css + page.tsx
+- Completely rewrote globals.css with dark luxury palette:
+  - Background: #0a0a0a (main), #111111 (sections), #1a1a1a (cards)
+  - Rose Gold: #b76e79 (main), #d4a088 (light), #8f4a55 (dark)
+  - Gold Accent: #c9a84c (main), #f1d56e (light), #a68a3a (dark)
+  - Dark scrollbar with rose gold → gold gradient thumb
+  - Gold shimmer text (shimmer-text-gold): #c9a84c → #f1d56e → #c9a84c
+  - Rose shimmer text (shimmer-text-rose): rose gold + gold combo
+  - Dark glassmorphism utilities (glass, glass-dark)
+  - Animated gradient bg with dark tones
+  - Ornament divider with rose gold + gold gradient lines
+  - Glow utilities (glow-rose-gold)
+  - Gold particle and diamond CSS classes
+  - Reduced to ~12 CSS keyframe animations (performance optimized)
+  - Removed petal animations and float-reverse
+  - Dark ::selection styling
+- Rewrote FloatingDecorations.tsx: 4 subtle gold particles/circles (no petals)
+- Rewrote Navbar.tsx: dark glassmorphism (rgba(10,10,10,0.9)), gold shimmer logo, rose gold CTA
+- Rewrote Hero.tsx: dark overlay (0.6-0.85 opacity), dark gradient bottom, dark bottom strip (#1a1a1a), gold sparkles
+- Rewrote Marquee.tsx: #111 bg, #666 muted text, rose gold separators
+- Rewrote About.tsx: #111 bg, dark glass stat cards (#1a1a1a), rose gold borders, gold shimmer heading
+- Rewrote Services.tsx: #0a0a0a bg, #1e1e1e dark glass cards, rose gold icon hover, gold shimmer prices
+- Rewrote Gallery.tsx: #111 bg, dark borders, dark hover overlay, dark lightbox (rgba(10,10,10,0.95))
+- Rewrote Pricing.tsx: #0a0a0a bg, #1a1a1a cards, rose gold animated border (popular), gold shimmer prices
+- Rewrote Testimonials.tsx: animated dark gradient bg, dark glass card, gold stars, rose-gold gradient avatars
+- Rewrote Booking.tsx: #111 bg, dark form card (#1a1a1a), dark inputs (#252525) with rose gold focus border
+- Rewrote Contact.tsx: #0a0a0a bg, dark glass cards, dark action buttons
+- Rewrote Footer.tsx: #050505 bg, animated rose gold + gold gradient top border, gold shimmer logo
+- Rewrote PromoBanner.tsx: all 4 variants dark-themed (rose, gold, plum dark, gradient)
+- Rewrote ImageShowcase.tsx: dark overlays, dark borders, gold shimmer titles
+- Updated layout.tsx: body bg #0a0a0a, text #f5f5f5
+- Updated page.tsx: simplified wrapper (removed AnimatePresence, kept motion.div)
+- Build successful: 0 errors (3.0s compile, 164.1ms static gen)
+
+Stage Summary:
+- ✅ 17 files completely rewritten with dark luxury theme
+- ✅ Color palette: Dark backgrounds (#0a0a0a, #111, #1a1a1a) with rose gold (#b76e79) and gold (#c9a84c) accents
+- ✅ Glassmorphism throughout: dark frosted glass cards with subtle borders
+- ✅ Performance: Reduced CSS animations to ~12 keyframes, no heavy parallax
+- ✅ No floating petals - replaced with 4 subtle gold particles
+- ✅ Gold shimmer text on headings, rose gold hover effects
+- ✅ All text colors updated for dark backgrounds (white, #f5f5f5, #a0a0a0, #666)
+- ✅ Business info unchanged (same phone, address, services, hours)
+- ✅ Build: Successful (0 errors, 3.0s compile)

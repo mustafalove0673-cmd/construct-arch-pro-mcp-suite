@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Flower2, Sparkles, Check, Calendar, Clock, User, Phone, MapPin, FileText } from 'lucide-react';
+import { Sparkles, Check, Calendar, Clock, User, Phone, MapPin, FileText } from 'lucide-react';
 
 const serviceOptions = [
   'Buz Epilasyon',
@@ -55,21 +55,13 @@ export default function Booking() {
   };
 
   const inputClass =
-    'w-full px-5 py-3.5 rounded-xl bg-white/80 border border-rose/10 text-plum text-sm placeholder:text-plum/30 focus:outline-none focus:border-rose focus:shadow-[0_0_20px_rgba(232,160,191,0.15)] transition-all duration-300';
+    'w-full px-5 py-3.5 rounded-xl bg-[#252525] border border-white/[0.08] text-[#f5f5f5] text-sm placeholder:text-[#666] focus:outline-none focus:border-[#b76e79] focus:shadow-[0_0_20px_rgba(183,110,121,0.15)] transition-all duration-300';
 
   return (
-    <section id="randevu" className="relative py-20 md:py-32 overflow-hidden" ref={sectionRef}>
-      {/* Morphing blob background */}
-      <motion.div
-        className="absolute -right-40 top-20 w-[500px] h-[500px] bg-rose/5 morph-shape blur-3xl"
-        animate={{ y: [0, -30, 0], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute -left-40 bottom-20 w-[400px] h-[400px] bg-gold-beauty/5 morph-shape blur-3xl"
-        animate={{ y: [0, 30, 0], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-      />
+    <section id="randevu" className="relative py-20 md:py-32 overflow-hidden bg-[#111]" ref={sectionRef}>
+      {/* Background decorations */}
+      <div className="absolute -right-40 top-20 w-[500px] h-[500px] bg-[#b76e79]/[0.02] rounded-full blur-3xl" />
+      <div className="absolute -left-40 bottom-20 w-[400px] h-[400px] bg-[#c9a84c]/[0.02] rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -80,17 +72,17 @@ export default function Booking() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <Flower2 className="w-5 h-5 text-rose" />
-              <span className="text-sm uppercase tracking-[0.3em] text-rose-dark font-medium">Randevu</span>
+              <Sparkles className="w-5 h-5 text-[#b76e79]" />
+              <span className="text-sm uppercase tracking-[0.3em] text-[#b76e79] font-medium">Randevu</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-[#f5f5f5]">
               Hemen{' '}
-              <span className="shimmer-text-rose">Randevu</span>{' '}
+              <span className="shimmer-text-gold">Randevu</span>{' '}
               Alın
             </h2>
 
-            <p className="text-plum/50 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-[#a0a0a0] text-base sm:text-lg leading-relaxed mb-8">
               Ayşe Nur Karcı Beauty Vip&apos;te güzelliğinize yatırım yapmanın tam zamanı. Online randevu formumuzu doldurun, sizi arayalım.
             </p>
 
@@ -100,7 +92,7 @@ export default function Booking() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
             >
-              <Sparkles className="w-4 h-4 text-rose/40" />
+              <Sparkles className="w-4 h-4 text-[#c9a84c]/40" />
             </motion.div>
 
             {/* Info cards */}
@@ -117,10 +109,10 @@ export default function Booking() {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.6 + i * 0.1 }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-rose/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-4 h-4 text-rose" />
+                  <div className="w-10 h-10 rounded-xl bg-[#b76e79]/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-[#b76e79]" />
                   </div>
-                  <span className="text-sm text-plum/60">{item.text}</span>
+                  <span className="text-sm text-[#a0a0a0]">{item.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -132,13 +124,9 @@ export default function Booking() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-rose/10 shadow-lg relative overflow-hidden">
-              {/* Decorative blob in form */}
-              <motion.div
-                className="absolute -top-20 -right-20 w-40 h-40 bg-rose/5 morph-shape"
-                animate={{ borderRadius: ['60% 40% 30% 70%/60% 30% 70% 40%', '30% 60% 70% 40%/50% 60% 30% 60%', '60% 40% 30% 70%/60% 30% 70% 40%'] }}
-                transition={{ duration: 8, repeat: Infinity }}
-              />
+            <div className="bg-[#1a1a1a] backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-white/[0.06] shadow-lg relative overflow-hidden">
+              {/* Decorative corner glow */}
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#b76e79]/[0.03] rounded-full blur-3xl" />
 
               {submitted ? (
                 <motion.div
@@ -148,31 +136,15 @@ export default function Booking() {
                   transition={{ type: 'spring', stiffness: 200 }}
                 >
                   <motion.div
-                    className="w-20 h-20 rounded-full bg-gradient-to-br from-rose to-rose-dark flex items-center justify-center mb-6"
+                    className="w-20 h-20 rounded-full bg-gradient-to-br from-[#b76e79] to-[#c9a84c] flex items-center justify-center mb-6"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 300, delay: 0.2 }}
                   >
                     <Check className="w-10 h-10 text-white" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-plum mb-2">Randevunuz Alındı!</h3>
-                  <p className="text-plum/50 text-center">En kısa sürede sizinle iletişime geçeceğiz.</p>
-
-                  {/* Confetti sparkles */}
-                  {[...Array(8)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-2 h-2 rounded-full bg-rose"
-                      initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                      animate={{
-                        x: (Math.random() - 0.5) * 200,
-                        y: (Math.random() - 0.5) * 200,
-                        opacity: 0,
-                        scale: 0,
-                      }}
-                      transition={{ duration: 1.5, delay: 0.3 + i * 0.05 }}
-                    />
-                  ))}
+                  <h3 className="text-2xl font-bold text-[#f5f5f5] mb-2">Randevunuz Alındı!</h3>
+                  <p className="text-[#a0a0a0] text-center">En kısa sürede sizinle iletişime geçeceğiz.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
@@ -182,7 +154,7 @@ export default function Booking() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.4 }}
                   >
-                    <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
+                    <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
                       <User className="w-3 h-3" /> Ad Soyad
                     </label>
                     <input
@@ -203,7 +175,7 @@ export default function Booking() {
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.45 }}
                     >
-                      <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
+                      <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
                         <Phone className="w-3 h-3" /> Telefon
                       </label>
                       <input
@@ -221,7 +193,7 @@ export default function Booking() {
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.5 }}
                     >
-                      <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
+                      <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
                         <FileText className="w-3 h-3" /> E-posta (isteğe bağlı)
                       </label>
                       <input
@@ -242,8 +214,8 @@ export default function Booking() {
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.55 }}
                     >
-                      <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
-                        <Flower2 className="w-3 h-3" /> Hizmet
+                      <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
+                        <Sparkles className="w-3 h-3" /> Hizmet
                       </label>
                       <select name="service" value={formData.service} onChange={handleChange} required className={inputClass}>
                         <option value="">Hizmet Seçin</option>
@@ -255,7 +227,7 @@ export default function Booking() {
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.6 }}
                     >
-                      <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
+                      <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
                         <User className="w-3 h-3" /> Uzman
                       </label>
                       <select name="specialist" value={formData.specialist} onChange={handleChange} className={inputClass}>
@@ -272,7 +244,7 @@ export default function Booking() {
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.65 }}
                     >
-                      <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
+                      <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
                         <Calendar className="w-3 h-3" /> Tarih
                       </label>
                       <input
@@ -289,7 +261,7 @@ export default function Booking() {
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.7 }}
                     >
-                      <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
+                      <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
                         <Clock className="w-3 h-3" /> Saat
                       </label>
                       <select name="time" value={formData.time} onChange={handleChange} required className={inputClass}>
@@ -305,7 +277,7 @@ export default function Booking() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.75 }}
                   >
-                    <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
+                    <label className="flex items-center gap-2 text-xs font-medium text-[#a0a0a0] mb-2 uppercase tracking-wider">
                       <FileText className="w-3 h-3" /> Notlar
                     </label>
                     <textarea
@@ -321,11 +293,11 @@ export default function Booking() {
                   {/* Submit */}
                   <motion.button
                     type="submit"
-                    className="relative w-full py-4 bg-gradient-to-r from-rose to-rose-dark text-white font-semibold text-sm uppercase tracking-wider rounded-xl overflow-hidden group"
+                    className="relative w-full py-4 bg-gradient-to-r from-[#b76e79] to-[#8f4a55] text-white font-semibold text-sm uppercase tracking-wider rounded-xl overflow-hidden group"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.8 }}
-                    whileHover={{ scale: 1.02, boxShadow: '0 15px 40px rgba(232, 160, 191, 0.4)' }}
+                    whileHover={{ scale: 1.02, boxShadow: '0 15px 40px rgba(183, 110, 121, 0.3)' }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
@@ -333,7 +305,7 @@ export default function Booking() {
                       Randevuyu Onayla
                     </span>
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full"
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full"
                       transition={{ duration: 0.6 }}
                     />
                   </motion.button>

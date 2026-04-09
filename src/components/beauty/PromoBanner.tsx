@@ -22,24 +22,24 @@ const iconMap = {
 
 const variantStyles = {
   rose: {
-    bg: 'bg-gradient-to-r from-rose via-rose-dark to-rose',
-    border: 'border-rose/20',
-    iconBg: 'bg-white/20',
+    bg: 'bg-gradient-to-r from-[#b76e79] via-[#8f4a55] to-[#b76e79]',
+    iconBg: 'bg-white/15',
+    textLight: true,
   },
   gold: {
-    bg: 'bg-gradient-to-r from-gold-beauty via-champagne to-gold-beauty',
-    border: 'border-gold-beauty/20',
-    iconBg: 'bg-white/20',
+    bg: 'bg-gradient-to-r from-[#a68a3a] via-[#c9a84c] to-[#a68a3a]',
+    iconBg: 'bg-white/15',
+    textLight: true,
   },
   plum: {
-    bg: 'bg-gradient-to-r from-plum via-plum-light to-plum',
-    border: 'border-plum/20',
-    iconBg: 'bg-white/20',
+    bg: 'bg-gradient-to-r from-[#1a1a1a] via-[#252525] to-[#1a1a1a] border border-[#b76e79]/20',
+    iconBg: 'bg-[#b76e79]/15',
+    textLight: false,
   },
   gradient: {
-    bg: 'bg-gradient-to-r from-rose via-gold-beauty to-plum-light',
-    border: 'border-gold-beauty/20',
-    iconBg: 'bg-white/20',
+    bg: 'bg-gradient-to-r from-[#b76e79] via-[#c9a84c] to-[#8f4a55]',
+    iconBg: 'bg-white/15',
+    textLight: true,
   },
 };
 
@@ -48,12 +48,11 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const styles = variantStyles[variant];
   const Icon = iconMap[icon];
-  const isLight = variant === 'gold';
 
   return (
     <div ref={ref} className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 my-8 md:my-12">
       <motion.div
-        className={`relative overflow-hidden rounded-2xl p-5 sm:p-6 ${styles.bg} ${styles.border} border`}
+        className={`relative overflow-hidden rounded-2xl p-5 sm:p-6 ${styles.bg}`}
         initial={{ opacity: 0, y: 30, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
@@ -62,7 +61,7 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
       >
         {/* Shine sweep */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent pointer-events-none"
           animate={{ x: ['-100%', '200%'] }}
           transition={{ duration: 4, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' }}
         />
@@ -75,11 +74,11 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
             >
-              <Icon className={`w-6 h-6 ${isLight ? 'text-plum' : 'text-white'}`} />
+              <Icon className={`w-6 h-6 ${styles.textLight ? 'text-white' : 'text-[#b76e79]'}`} />
             </motion.div>
             <div className="min-w-0">
               <motion.h3
-                className={`text-lg sm:text-xl font-bold ${isLight ? 'text-plum' : 'text-white'} truncate`}
+                className={`text-lg sm:text-xl font-bold truncate ${styles.textLight ? 'text-white' : 'text-[#f5f5f5]'}`}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -88,7 +87,7 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
                 {title}
               </motion.h3>
               <motion.p
-                className={`text-sm ${isLight ? 'text-plum/70' : 'text-white/70'} truncate`}
+                className={`text-sm truncate ${styles.textLight ? 'text-white/70' : 'text-[#a0a0a0]'}`}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -103,9 +102,9 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
             <motion.a
               href="#randevu"
               className={`hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm uppercase tracking-wider flex-shrink-0 transition-colors ${
-                isLight
-                  ? 'bg-plum text-white hover:bg-plum-dark'
-                  : 'bg-white text-plum hover:bg-white/90'
+                styles.textLight
+                  ? 'bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]'
+                  : 'bg-[#b76e79] text-white hover:bg-[#8f4a55]'
               }`}
               initial={{ opacity: 0, x: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -119,8 +118,6 @@ export default function PromoBanner({ variant = 'rose', title, subtitle, cta, ic
             </motion.a>
           )}
         </div>
-
-
       </motion.div>
     </div>
   );

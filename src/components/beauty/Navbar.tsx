@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Flower2, Phone, MapPin, Clock, Star, ChevronRight, X, Navigation, MessageCircle } from 'lucide-react';
+import { Flower2, Phone, MapPin, Clock, ChevronRight, X, Navigation, MessageCircle } from 'lucide-react';
 
 const navLinks = [
   { href: '#anasayfa', label: 'Ana Sayfa' },
@@ -31,14 +31,14 @@ export default function Navbar() {
           paddingBottom: paddingY,
         }}
       >
-        {/* Glassmorphism background */}
+        {/* Dark Glassmorphism background */}
         <motion.div
-          className="absolute inset-0 border-b border-rose/10"
+          className="absolute inset-0 border-b border-white/[0.06]"
           style={{
             opacity: bgOpacity,
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
-            background: 'rgba(253, 246, 240, 0.95)',
+            background: 'rgba(10, 10, 10, 0.9)',
           }}
         />
 
@@ -51,22 +51,22 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              className="w-11 h-11 rounded-full border-2 border-rose flex items-center justify-center bg-rose/10 relative overflow-hidden"
+              className="w-11 h-11 rounded-full border-2 border-[#b76e79] flex items-center justify-center bg-[#b76e79]/10 relative overflow-hidden"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              <Flower2 className="w-5 h-5 text-rose" />
+              <Flower2 className="w-5 h-5 text-[#b76e79]" />
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-beauty/20 to-transparent"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#c9a84c]/20 to-transparent"
                 animate={{ x: ['-100%', '200%'] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'linear', repeatDelay: 2 }}
               />
             </motion.div>
             <div className="flex flex-col">
-              <span className="shimmer-text-rose font-bold text-lg tracking-wider leading-tight">
+              <span className="shimmer-text-gold font-bold text-lg tracking-wider leading-tight">
                 Ayşe Nur Karcı
               </span>
-              <span className="text-rose-dark/60 text-[10px] tracking-[0.2em] uppercase">
+              <span className="text-[#b76e79]/70 text-[10px] tracking-[0.2em] uppercase">
                 Beauty Vip
               </span>
             </div>
@@ -78,7 +78,7 @@ export default function Navbar() {
               <motion.a
                 key={link.href}
                 href={link.href}
-                className="relative px-3 py-2 text-[13px] font-medium text-plum/70 hover:text-rose-dark transition-colors duration-300 uppercase tracking-wider"
+                className="relative px-3 py-2 text-[13px] font-medium text-[#a0a0a0] hover:text-[#b76e79] transition-colors duration-300 uppercase tracking-wider"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 + 0.3, duration: 0.5 }}
@@ -86,7 +86,7 @@ export default function Navbar() {
               >
                 {link.label}
                 <motion.span
-                  className="absolute bottom-0 left-1/2 h-[2px] bg-gradient-to-r from-rose to-gold-beauty -translate-x-1/2 rounded-full"
+                  className="absolute bottom-0 left-1/2 h-[2px] bg-gradient-to-r from-[#b76e79] to-[#c9a84c] -translate-x-1/2 rounded-full"
                   initial={{ width: 0 }}
                   whileHover={{ width: '80%' }}
                   transition={{ duration: 0.3 }}
@@ -95,13 +95,12 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA - Phone only (no rating) */}
+          {/* Desktop CTA - Phone */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Phone */}
             <motion.a
               href="tel:05335701208"
-              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-rose to-rose-dark text-white font-semibold text-xs uppercase tracking-wider rounded-full group"
-              whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(232, 160, 191, 0.4)' }}
+              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[#b76e79] to-[#8f4a55] text-white font-semibold text-xs uppercase tracking-wider rounded-full group"
+              whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(183, 110, 121, 0.4)' }}
               whileTap={{ scale: 0.95 }}
             >
               <Phone className="w-3.5 h-3.5" />
@@ -118,10 +117,10 @@ export default function Navbar() {
           >
             {/* Background circle */}
             <motion.div
-              className="absolute w-12 h-12 rounded-full border-2 border-rose/30 bg-white/70 backdrop-blur-md"
+              className="absolute w-12 h-12 rounded-full border-2 border-[#b76e79]/30 bg-[#1a1a1a]/80 backdrop-blur-md"
               animate={isMobileOpen
-                ? { rotate: 90, borderColor: 'rgba(232,160,191,0.8)', scale: 1.1 }
-                : { rotate: 0, borderColor: 'rgba(232,160,191,0.3)', scale: 1 }
+                ? { rotate: 90, borderColor: 'rgba(183,110,121,0.8)', scale: 1.1 }
+                : { rotate: 0, borderColor: 'rgba(183,110,121,0.3)', scale: 1 }
               }
               transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
             />
@@ -129,7 +128,7 @@ export default function Navbar() {
             {/* 3 Dots */}
             <div className="relative z-10 flex flex-col items-center justify-center gap-[5px] py-3 px-3">
               <motion.span
-                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-rose to-rose-dark"
+                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-[#b76e79] to-[#8f4a55]"
                 animate={isMobileOpen
                   ? { y: 4, scale: 0.8, opacity: 0.5 }
                   : { y: 0, scale: 1, opacity: 1 }
@@ -137,15 +136,15 @@ export default function Navbar() {
                 transition={{ duration: 0.25, delay: isMobileOpen ? 0 : 0.05 }}
               />
               <motion.span
-                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-rose to-rose-dark"
+                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-[#b76e79] to-[#8f4a55]"
                 animate={isMobileOpen
-                  ? { scale: 1.3, backgroundColor: '#e8a0bf' }
+                  ? { scale: 1.3, backgroundColor: '#d4a088' }
                   : { scale: 1 }
                 }
                 transition={{ duration: 0.25 }}
               />
               <motion.span
-                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-rose to-rose-dark"
+                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-[#b76e79] to-[#8f4a55]"
                 animate={isMobileOpen
                   ? { y: -4, scale: 0.8, opacity: 0.5 }
                   : { y: 0, scale: 1, opacity: 1 }
@@ -154,7 +153,7 @@ export default function Navbar() {
               />
             </div>
 
-            {/* X icon when open (overlays the dots) */}
+            {/* X icon when open */}
             <AnimatePresence>
               {isMobileOpen && (
                 <motion.div
@@ -164,7 +163,7 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                   className="absolute z-20"
                 >
-                  <X className="w-5 h-5 text-rose-dark" />
+                  <X className="w-5 h-5 text-[#b76e79]" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -178,7 +177,7 @@ export default function Navbar() {
           <motion.div
             className="fixed inset-0 z-40 flex flex-col"
             style={{
-              background: 'rgba(253, 246, 240, 0.98)',
+              background: 'rgba(10, 10, 10, 0.98)',
               backdropFilter: 'blur(30px)',
               WebkitBackdropFilter: 'blur(30px)',
             }}
@@ -188,23 +187,23 @@ export default function Navbar() {
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           >
             <div className="flex-1 flex flex-col justify-center px-8 pt-20">
-              {/* Business name at top of mobile menu */}
+              {/* Business name */}
               <motion.div
                 className="text-center mb-10"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <span className="text-2xl font-bold shimmer-text-rose">Ayşe Nur Karcı</span>
-                <p className="text-plum/50 text-xs tracking-[0.2em] uppercase mt-1">Beauty Vip</p>
+                <span className="text-2xl font-bold shimmer-text-gold">Ayşe Nur Karcı</span>
+                <p className="text-[#b76e79]/50 text-xs tracking-[0.2em] uppercase mt-1">Beauty Vip</p>
               </motion.div>
 
-              {/* Nav links with stagger */}
+              {/* Nav links */}
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
-                  className="flex items-center justify-between py-3 border-b border-rose/5 text-xl font-medium text-plum/80 hover:text-rose-dark transition-colors"
+                  className="flex items-center justify-between py-3 border-b border-white/[0.06] text-xl font-medium text-[#f5f5f5]/80 hover:text-[#b76e79] transition-colors"
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 + index * 0.05 }}
@@ -212,11 +211,11 @@ export default function Navbar() {
                   whileHover={{ x: 8 }}
                 >
                   <span>{link.label}</span>
-                  <ChevronRight className="w-4 h-4 text-rose/30" />
+                  <ChevronRight className="w-4 h-4 text-[#b76e79]/30" />
                 </motion.a>
               ))}
 
-              {/* Contact buttons in mobile menu */}
+              {/* Contact buttons */}
               <motion.div
                 className="mt-8 space-y-3"
                 initial={{ opacity: 0, y: 20 }}
@@ -225,7 +224,7 @@ export default function Navbar() {
               >
                 <motion.a
                   href="tel:05335701208"
-                  className="flex items-center justify-center gap-3 py-3 bg-gradient-to-r from-rose to-rose-dark text-white font-bold text-base uppercase tracking-wider rounded-xl"
+                  className="flex items-center justify-center gap-3 py-3 bg-gradient-to-r from-[#b76e79] to-[#8f4a55] text-white font-bold text-base uppercase tracking-wider rounded-xl"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsMobileOpen(false)}
@@ -237,8 +236,8 @@ export default function Navbar() {
                   href="https://maps.google.com/?q=Ayşe+Nur+Karcı+Beauty+Vip+Pursaklar+Ankara"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 py-3 border-2 border-rose/30 text-rose-dark font-bold text-base uppercase tracking-wider rounded-xl"
-                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(232,160,191,0.1)' }}
+                  className="flex items-center justify-center gap-3 py-3 border-2 border-[#b76e79]/30 text-[#b76e79] font-bold text-base uppercase tracking-wider rounded-xl"
+                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(183,110,121,0.1)' }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -249,8 +248,8 @@ export default function Navbar() {
                   href="https://wa.me/905335701208"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 py-3 border-2 border-green-400/40 text-green-600 font-bold text-base uppercase tracking-wider rounded-xl"
-                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(74,222,128,0.1)' }}
+                  className="flex items-center justify-center gap-3 py-3 border-2 border-green-500/40 text-green-400 font-bold text-base uppercase tracking-wider rounded-xl"
+                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(34,197,94,0.1)' }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsMobileOpen(false)}
                 >

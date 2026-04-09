@@ -2,7 +2,7 @@
 
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote, Flower2 } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote, Sparkles } from 'lucide-react';
 
 const testimonials = [
   {
@@ -91,18 +91,18 @@ export default function Testimonials() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
           >
-            <Flower2 className="w-5 h-5 text-rose" />
-            <span className="text-sm uppercase tracking-[0.3em] text-rose-dark font-medium">Müşteri Yorumları</span>
-            <Flower2 className="w-5 h-5 text-rose rotate-180" />
+            <Sparkles className="w-5 h-5 text-[#b76e79]" />
+            <span className="text-sm uppercase tracking-[0.3em] text-[#b76e79] font-medium">Müşteri Yorumları</span>
+            <Sparkles className="w-5 h-5 text-[#b76e79] rotate-180" />
           </motion.div>
 
           <motion.h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-[#f5f5f5]"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            Mutlu <span className="shimmer-text-rose">Müşterilerimiz</span>
+            Mutlu <span className="shimmer-text-gold">Müşterilerimiz</span>
           </motion.h2>
 
           <motion.div
@@ -111,7 +111,7 @@ export default function Testimonials() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
           >
-            <Flower2 className="w-4 h-4 text-rose/40" />
+            <Sparkles className="w-4 h-4 text-[#c9a84c]/40" />
           </motion.div>
         </div>
 
@@ -122,15 +122,11 @@ export default function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5 }}
         >
-          <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-rose/10 min-h-[300px] flex flex-col items-center justify-center">
+          <div className="relative bg-[#1a1a1a]/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-white/[0.06] min-h-[300px] flex flex-col items-center justify-center">
             {/* Background quote icon */}
-            <motion.div
-              className="absolute top-8 left-8 text-rose/5"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
+            <div className="absolute top-8 left-8 text-[#b76e79]/[0.06]">
               <Quote className="w-20 h-20" />
-            </motion.div>
+            </div>
 
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
@@ -155,8 +151,8 @@ export default function Testimonials() {
                       <Star
                         className={`w-5 h-5 ${
                           i < current.rating
-                            ? 'text-gold-beauty fill-gold-beauty'
-                            : 'text-plum/10'
+                            ? 'text-[#c9a84c] fill-[#c9a84c]'
+                            : 'text-white/10'
                         }`}
                       />
                     </motion.div>
@@ -164,18 +160,18 @@ export default function Testimonials() {
                 </div>
 
                 {/* Quote text */}
-                <p className="text-lg sm:text-xl text-plum/70 leading-relaxed mb-8 italic font-light">
+                <p className="text-lg sm:text-xl text-[#a0a0a0] leading-relaxed mb-8 italic font-light">
                   &ldquo;{current.text}&rdquo;
                 </p>
 
                 {/* Author */}
                 <div className="flex flex-col items-center gap-3">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-rose to-rose-dark flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#b76e79] to-[#c9a84c] flex items-center justify-center text-white font-bold text-lg">
                     {current.initial}
                   </div>
                   <div>
-                    <p className="font-bold text-plum">{current.name}</p>
-                    <p className="text-sm text-plum/40">{current.role}</p>
+                    <p className="font-bold text-[#f5f5f5]">{current.name}</p>
+                    <p className="text-sm text-[#666]">{current.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -186,7 +182,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-6 mt-8">
             {/* Prev button */}
             <motion.button
-              className="w-12 h-12 rounded-full border border-rose/20 flex items-center justify-center text-rose-dark hover:bg-rose hover:text-white hover:border-rose transition-colors"
+              className="w-12 h-12 rounded-full border border-[#b76e79]/20 flex items-center justify-center text-[#b76e79] hover:bg-[#b76e79] hover:text-white hover:border-[#b76e79] transition-colors"
               onClick={() => paginate(-1)}
               whileHover={{ rotate: -15, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -199,12 +195,12 @@ export default function Testimonials() {
               {testimonials.map((_, i) => (
                 <motion.button
                   key={i}
-                  className="h-2 rounded-full bg-rose/20 overflow-hidden"
+                  className="h-2 rounded-full overflow-hidden"
                   onClick={() => setPage([i, i > page ? 1 : -1])}
                   whileHover={{ scale: 1.3 }}
                   animate={{
                     width: i === page ? 32 : 8,
-                    backgroundColor: i === page ? '#e8a0bf' : 'rgba(232,160,191,0.2)',
+                    backgroundColor: i === page ? '#b76e79' : 'rgba(183,110,121,0.2)',
                   }}
                   transition={{ duration: 0.3 }}
                 />
@@ -213,7 +209,7 @@ export default function Testimonials() {
 
             {/* Next button */}
             <motion.button
-              className="w-12 h-12 rounded-full border border-rose/20 flex items-center justify-center text-rose-dark hover:bg-rose hover:text-white hover:border-rose transition-colors"
+              className="w-12 h-12 rounded-full border border-[#b76e79]/20 flex items-center justify-center text-[#b76e79] hover:bg-[#b76e79] hover:text-white hover:border-[#b76e79] transition-colors"
               onClick={() => paginate(1)}
               whileHover={{ rotate: 15, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

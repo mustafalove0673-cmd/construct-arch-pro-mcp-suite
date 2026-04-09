@@ -14,16 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Klasik Erkek Kuaförü | Premium Berber Hizmetleri",
-  description: "Profesyonel erkek kuaförü hizmetleri. Sac kesimi, sakal tiras, damat tiras ve daha fazlasi. Modern vintage tarzda kaliteli berber deneyimi.",
-  keywords: ["berber", "kuaför", "erkek kuaförü", "saç kesimi", "sakal tıraşı", "damat tıraşı"],
+  title: "Lumière Beauty | Premium Güzellik Merkezi",
+  description: "Premium kadın güzellik merkezi. Saç bakımı, cilt bakımı, makyaj, manikür, spa ve daha fazlası. Kendinizi özel hissedin.",
+  keywords: ["güzellik merkezi", "beauty salon", "saç bakımı", "cilt bakımı", "makyaj", "spa", "manikür"],
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
-  },
-  openGraph: {
-    title: "Klasik Erkek Kuaförü | Premium Berber Hizmetleri",
-    description: "Profesyonel erkek kuaförü hizmetleri. Modern vintage tarzda kaliteli berber deneyimi.",
-    type: "website",
   },
 };
 
@@ -35,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="tr" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-charcoal text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-cream text-foreground overflow-x-hidden`}
       >
         {children}
         <Toaster />

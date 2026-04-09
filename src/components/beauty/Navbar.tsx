@@ -122,53 +122,62 @@ export default function Navbar() {
             </motion.a>
           </div>
 
-          {/* Mobile Menu Button - Hexagonal flower style */}
+          {/* Mobile Menu Button - 3 Dot Style */}
           <motion.button
-            className="lg:hidden relative w-11 h-11 flex items-center justify-center"
+            className="lg:hidden relative flex items-center justify-center"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.85 }}
+            aria-label="Menü"
           >
+            {/* Background circle */}
             <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-br from-rose to-rose-dark"
-              animate={isMobileOpen ? { scale: 1, rotate: 180 } : { scale: 0, rotate: 0 }}
-              transition={{ duration: 0.3 }}
+              className="absolute w-12 h-12 rounded-full border-2 border-rose/30 bg-white/70 backdrop-blur-md"
+              animate={isMobileOpen
+                ? { rotate: 90, borderColor: 'rgba(232,160,191,0.8)', scale: 1.1 }
+                : { rotate: 0, borderColor: 'rgba(232,160,191,0.3)', scale: 1 }
+              }
+              transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
             />
-            <AnimatePresence mode="wait">
-              {isMobileOpen ? (
+
+            {/* 3 Dots */}
+            <div className="relative z-10 flex flex-col items-center justify-center gap-[5px] py-3 px-3">
+              <motion.span
+                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-rose to-rose-dark"
+                animate={isMobileOpen
+                  ? { y: 4, scale: 0.8, opacity: 0.5 }
+                  : { y: 0, scale: 1, opacity: 1 }
+                }
+                transition={{ duration: 0.25, delay: isMobileOpen ? 0 : 0.05 }}
+              />
+              <motion.span
+                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-rose to-rose-dark"
+                animate={isMobileOpen
+                  ? { scale: 1.3, backgroundColor: '#e8a0bf' }
+                  : { scale: 1 }
+                }
+                transition={{ duration: 0.25 }}
+              />
+              <motion.span
+                className="block w-[7px] h-[7px] rounded-full bg-gradient-to-br from-rose to-rose-dark"
+                animate={isMobileOpen
+                  ? { y: -4, scale: 0.8, opacity: 0.5 }
+                  : { y: 0, scale: 1, opacity: 1 }
+                }
+                transition={{ duration: 0.25, delay: isMobileOpen ? 0 : 0.05 }}
+              />
+            </div>
+
+            {/* X icon when open (overlays the dots) */}
+            <AnimatePresence>
+              {isMobileOpen && (
                 <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
                   transition={{ duration: 0.2 }}
-                  className="relative z-10"
+                  className="absolute z-20"
                 >
-                  <X className="w-5 h-5 text-white" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative z-10 flex flex-col items-center justify-center gap-[3px]"
-                >
-                  <motion.span
-                    className="w-5 h-[1.5px] bg-plum rounded-full block"
-                    animate={isMobileOpen ? {} : { width: ['100%', '60%', '100%'] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <motion.span
-                    className="w-4 h-[1.5px] bg-plum rounded-full block"
-                    animate={isMobileOpen ? {} : { width: ['60%', '100%', '60%'] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                  />
-                  <motion.span
-                    className="w-5 h-[1.5px] bg-plum rounded-full block"
-                    animate={isMobileOpen ? {} : { width: ['100%', '80%', '100%'] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                  />
+                  <X className="w-5 h-5 text-rose-dark" />
                 </motion.div>
               )}
             </AnimatePresence>

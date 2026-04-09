@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "İpek Özmel Güzellik Merkezi | Premium Güzellik Hizmetleri",
-  description: "İpek Özmel Güzellik Merkezi - Premium kadın güzellik hizmetleri. Saç bakımı, cilt bakımı, makyaj, manikür, spa ve daha fazlası. Kendinizi özel hissedin.",
-  keywords: ["güzellik merkezi", "beauty salon", "saç bakımı", "cilt bakımı", "makyaj", "spa", "manikür"],
+  title: "Ayşe Nur Karcı Beauty Vip | Premium Güzellik Hizmetleri",
+  description: "Ayşe Nur Karcı Beauty Vip - Pursaklar/Ankara. Buz epilasyon, cilt bakımı, bölgesel incelme, kalıcı makyaj, protez tırnak.",
+  keywords: ["güzellik merkezi", "beauty salon", "buz epilasyon", "cilt bakımı", "bölgesel incelme", "kalıcı makyaj", "protez tırnak", "Pursaklar", "Ankara", "VIP güzellik"],
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },

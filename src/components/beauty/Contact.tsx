@@ -2,20 +2,20 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MapPin, Phone, Clock, Star, Flower2, Instagram, MessageCircle, Navigation, ExternalLink, Mail } from 'lucide-react';
+import { MapPin, Phone, Clock, Flower2, MessageCircle, Navigation, ExternalLink } from 'lucide-react';
 
 const contactCards = [
   {
     icon: MapPin,
     title: 'Adres',
-    lines: ['Taşpazar, Şht. Tğm. Yalçın', 'Sk. 10/A D:24, Aksaray'],
+    lines: ['Saray Cumhuriyet, Edebali', 'Sk. No:6/C, Pursaklar/Ankara'],
     color: 'from-rose/15 to-rose/5',
   },
   {
     icon: Phone,
     title: 'Telefon',
-    lines: ['0532 673 06 68'],
-    href: 'tel:05326730668',
+    lines: ['0533 570 12 08'],
+    href: 'tel:05335701208',
     color: 'from-gold-beauty/15 to-gold-beauty/5',
   },
   {
@@ -23,19 +23,6 @@ const contactCards = [
     title: 'Çalışma Saatleri',
     lines: ['Her Gün 09:00 – 21:00'],
     color: 'from-champagne/30 to-champagne/10',
-  },
-  {
-    icon: Star,
-    title: 'Değerlendirme',
-    lines: ['⭐ 4.7 puan', '1.172 Google yorumu'],
-    color: 'from-green-100/50 to-green-50/50',
-  },
-  {
-    icon: Mail,
-    title: 'E-Posta',
-    lines: ['ipekozmelresmi@gmail.com'],
-    href: 'mailto:ipekozmelresmi@gmail.com',
-    color: 'from-purple-100/50 to-purple-50/50',
   },
 ];
 
@@ -80,8 +67,8 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Contact Cards - 2x2 */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-8">
+        {/* Contact Cards - 3 columns */}
+        <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
           {contactCards.map((card, i) => (
             <motion.a
               key={card.title}
@@ -109,15 +96,15 @@ export default function Contact() {
           ))}
         </div>
 
-        {/* Action Buttons */}
+        {/* Action Buttons - 3 buttons */}
         <motion.div
-          className="grid grid-cols-4 gap-3 mb-8"
+          className="grid grid-cols-3 gap-3 mb-8"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5 }}
         >
           <motion.a
-            href="tel:05326730668"
+            href="tel:05335701208"
             className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-rose to-rose-dark text-white font-semibold text-xs uppercase tracking-wider rounded-xl shadow-md shadow-rose/20"
             whileHover={{ scale: 1.03, boxShadow: '0 10px 25px rgba(232,160,191,0.35)' }}
             whileTap={{ scale: 0.97 }}
@@ -126,7 +113,7 @@ export default function Contact() {
             <span className="hidden sm:inline">Ara</span>
           </motion.a>
           <motion.a
-            href="https://wa.me/905326730668"
+            href="https://wa.me/905335701208"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 py-3 bg-green-500 text-white font-semibold text-xs uppercase tracking-wider rounded-xl shadow-md shadow-green-500/20"
@@ -137,7 +124,7 @@ export default function Contact() {
             <span className="hidden sm:inline">WhatsApp</span>
           </motion.a>
           <motion.a
-            href="https://maps.google.com/?q=İpek+Özmel+Güzellik+Merkezi+Aksaray"
+            href="https://maps.google.com/?q=Ayşe+Nur+Karcı+Beauty+Vip+Pursaklar+Ankara"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 py-3 bg-plum text-white font-semibold text-xs uppercase tracking-wider rounded-xl shadow-md shadow-plum/20"
@@ -146,15 +133,6 @@ export default function Contact() {
           >
             <Navigation className="w-4 h-4" />
             <span className="hidden sm:inline">Yol Tarifi</span>
-          </motion.a>
-          <motion.a
-            href="mailto:ipekozmelresmi@gmail.com"
-            className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold text-xs uppercase tracking-wider rounded-xl shadow-md shadow-purple-500/20"
-            whileHover={{ scale: 1.03, boxShadow: '0 10px 25px rgba(168,85,247,0.35)' }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <Mail className="w-4 h-4" />
-            <span className="hidden sm:inline">E-Posta</span>
           </motion.a>
         </motion.div>
 
@@ -166,15 +144,15 @@ export default function Contact() {
           transition={{ delay: 0.6 }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.5!2d34.0256!3d38.3715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d671c81934bb87%3A0x4d6697b1b610066c!2s%C4%B0pek%20%C3%96zmel%20G%C3%BCzellik%20Merkezi!5e0!3m2!1str!2str!4v1700000000000"
+            src="https://maps.google.com/maps?q=Saray+Cumhuriyet,+Edebali+Sk.+No:6/C,+Pursaklar/Ankara&t=&z=15&ie=UTF8&iwloc=&output=embed"
             className="absolute inset-0 w-full h-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="İpek Özmel Güzellik Merkezi Konum"
+            title="Ayşe Nur Karcı Beauty Vip Konum"
           />
           {/* Map overlay badge */}
           <motion.a
-            href="https://maps.google.com/?q=İpek+Özmel+Güzellik+Merkezi+Aksaray"
+            href="https://maps.google.com/?q=Ayşe+Nur+Karcı+Beauty+Vip+Pursaklar+Ankara"
             target="_blank"
             rel="noopener noreferrer"
             className="absolute bottom-3 right-3 flex items-center gap-2 px-4 py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-rose/10 text-plum hover:bg-white transition-colors"

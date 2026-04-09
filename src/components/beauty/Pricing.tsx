@@ -8,7 +8,7 @@ const packages = [
   {
     name: 'Temel Bakım',
     subtitle: 'Temel ihtiyaçlarınız için',
-    price: 250,
+    price: 350,
     period: '/seans',
     popular: false,
     icon: Heart,
@@ -17,9 +17,10 @@ const packages = [
     borderColor: 'border-rose/20 hover:border-rose/40',
     image: '/images/beauty/gallery-spa.jpg',
     features: [
+      'Buz Epilasyon',
+      'Cilt Bakımı',
+      'Protez Tırnak',
       'Saç Kesimi & Fön',
-      'Temel Cilt Bakımı',
-      'Klasik Manikür',
       'Danışmanlık',
       'Çay & İkram',
     ],
@@ -27,7 +28,7 @@ const packages = [
   {
     name: 'Premium Paket',
     subtitle: 'En çok tercih edilen',
-    price: 550,
+    price: 750,
     period: '/seans',
     popular: true,
     icon: Crown,
@@ -36,19 +37,19 @@ const packages = [
     borderColor: 'border-gold-beauty/30',
     image: '/images/beauty/gallery-makeup.jpg',
     features: [
-      'Saç Kesimi & Bakım',
-      'Profesyonel Fön',
-      'Hydrafacial Cilt Bakımı',
-      'Jel Manikür & Pedikür',
-      'Makyaj Uygulama',
-      'Saç Boyama',
-      'Spa Masaj (1 saat)',
+      'Buz Epilasyon',
+      'Cilt Bakımı',
+      'Protez Tırnak',
+      'Bölgesel İncelme',
+      'Kalıcı Makyaj',
+      'Saç Bakım & Kesim',
+      'VIP Oda Hizmeti',
     ],
   },
   {
     name: 'Lüks VIP',
     subtitle: 'Tam kapsamlı deneyim',
-    price: 850,
+    price: 1200,
     period: '/seans',
     popular: false,
     icon: Gem,
@@ -58,13 +59,13 @@ const packages = [
     image: '/images/beauty/gallery-hair.jpg',
     features: [
       'Tüm Premium Hizmetler',
-      'Gelin Makyajı',
-      'Nail Art Tasarım',
-      'Full Spa Paketi',
+      'Buz Epilasyon (Tüm Bölgeler)',
+      'Kalıcı Makyaj (Kaş + Dudak)',
+      'Bölgesel İncelme Paketi',
+      'Hydrafacial Cilt Bakımı',
+      'Protez Tırnak + Nail Art',
+      'Saç Boyama & Tasarım',
       'VIP Oda Hizmeti',
-      'Aromaterapi & Masaj',
-      'Özel Çay Seremonisi',
-      'Ücretsiz Otopark',
     ],
   },
 ];
@@ -229,7 +230,7 @@ export default function Pricing() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <span className="shimmer-text-rose">Paket</span> Seçenekleri
+            <span className="shimmer-text-rose">VIP</span> Paket Seçenekleri
           </motion.h2>
 
           <motion.p
@@ -238,7 +239,7 @@ export default function Pricing() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Size en uygun paketi seçin, güzelliğe ilk adımınızı atın
+            Size en uygun VIP paketi seçin, güzelliğe ilk adımınızı atın
           </motion.p>
 
           <motion.div

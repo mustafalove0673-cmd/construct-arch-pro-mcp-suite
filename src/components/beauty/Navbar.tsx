@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Flower2, Phone, MapPin, Clock, Star, ChevronRight, X, Navigation, MessageCircle, Mail } from 'lucide-react';
+import { Flower2, Phone, MapPin, Clock, Star, ChevronRight, X, Navigation, MessageCircle } from 'lucide-react';
 
 const navLinks = [
   { href: '#anasayfa', label: 'Ana Sayfa' },
@@ -64,10 +64,10 @@ export default function Navbar() {
             </motion.div>
             <div className="flex flex-col">
               <span className="shimmer-text-rose font-bold text-lg tracking-wider leading-tight">
-                İpek Özmel
+                Ayşe Nur Karcı
               </span>
               <span className="text-rose-dark/60 text-[10px] tracking-[0.2em] uppercase">
-                Güzellik Merkezi
+                Beauty Vip
               </span>
             </div>
           </motion.a>
@@ -95,30 +95,17 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA + Info */}
+          {/* Desktop CTA - Phone only (no rating) */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Rating */}
-            <motion.div
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold-beauty/10 border border-gold-beauty/20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <Star className="w-3.5 h-3.5 text-gold-beauty fill-gold-beauty" />
-              <span className="text-xs font-bold text-plum">4.7</span>
-              <span className="text-[10px] text-plum/50">(1.172)</span>
-            </motion.div>
-
             {/* Phone */}
             <motion.a
-              href="tel:05326730668"
+              href="tel:05335701208"
               className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-rose to-rose-dark text-white font-semibold text-xs uppercase tracking-wider rounded-full group"
               whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(232, 160, 191, 0.4)' }}
               whileTap={{ scale: 0.95 }}
             >
               <Phone className="w-3.5 h-3.5" />
-              <span className="relative z-10">0532 673 06 68</span>
+              <span className="relative z-10">0533 570 12 08</span>
             </motion.a>
           </div>
 
@@ -208,13 +195,8 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <span className="text-2xl font-bold shimmer-text-rose">İpek Özmel</span>
-                <p className="text-plum/50 text-xs tracking-[0.2em] uppercase mt-1">Güzellik Merkezi</p>
-                <div className="flex items-center justify-center gap-1.5 mt-2">
-                  <Star className="w-3.5 h-3.5 text-gold-beauty fill-gold-beauty" />
-                  <span className="text-sm font-bold text-plum">4.7</span>
-                  <span className="text-xs text-plum/40">(1.172 yorum)</span>
-                </div>
+                <span className="text-2xl font-bold shimmer-text-rose">Ayşe Nur Karcı</span>
+                <p className="text-plum/50 text-xs tracking-[0.2em] uppercase mt-1">Beauty Vip</p>
               </motion.div>
 
               {/* Nav links with stagger */}
@@ -242,17 +224,17 @@ export default function Navbar() {
                 transition={{ delay: 0.7 }}
               >
                 <motion.a
-                  href="tel:05326730668"
+                  href="tel:05335701208"
                   className="flex items-center justify-center gap-3 py-3 bg-gradient-to-r from-rose to-rose-dark text-white font-bold text-base uppercase tracking-wider rounded-xl"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsMobileOpen(false)}
                 >
                   <Phone className="w-4 h-4" />
-                  0532 673 06 68
+                  0533 570 12 08
                 </motion.a>
                 <motion.a
-                  href="https://maps.google.com/?q=Taşpazar,+şehit+teğmen+yalçın+sokak+10/A+Aksaray"
+                  href="https://maps.google.com/?q=Ayşe+Nur+Karcı+Beauty+Vip+Pursaklar+Ankara"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 py-3 border-2 border-rose/30 text-rose-dark font-bold text-base uppercase tracking-wider rounded-xl"
@@ -264,7 +246,7 @@ export default function Navbar() {
                   Yol Tarifi
                 </motion.a>
                 <motion.a
-                  href="https://wa.me/905326730668"
+                  href="https://wa.me/905335701208"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 py-3 border-2 border-green-400/40 text-green-600 font-bold text-base uppercase tracking-wider rounded-xl"
@@ -274,16 +256,6 @@ export default function Navbar() {
                 >
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp
-                </motion.a>
-                <motion.a
-                  href="mailto:ipekozmelresmi@gmail.com"
-                  className="flex items-center justify-center gap-3 py-3 border-2 border-purple-400/40 text-purple-600 font-bold text-base uppercase tracking-wider rounded-xl"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsMobileOpen(false)}
-                >
-                  <Mail className="w-4 h-4" />
-                  E-Posta
                 </motion.a>
               </motion.div>
             </div>

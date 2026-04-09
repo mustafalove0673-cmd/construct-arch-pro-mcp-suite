@@ -46,12 +46,12 @@ export default function Home() {
 
         <About />
 
-        {/* Promo 2: Kampanya */}
+        {/* Promo 2: Buz Epilasyon Kampanyası */}
         <PromoBanner
           variant="gold"
           icon="percent"
-          title="Bahar Kampanyası Başladı"
-          subtitle="Saç boyama + kesim birlikte sadece 280₺"
+          title="Buz Epilasyon Kampanyası"
+          subtitle="İlk seansa özel %30 indirim"
           cta="Kampanyayı Gör"
         />
 
@@ -72,19 +72,19 @@ export default function Home() {
             '/images/beauty/gallery-spa.jpg',
             '/images/beauty/gallery-makeup.jpg',
           ]}
-          title="Spa & Güzellik"
-          subtitle="Profesyonel cilt bakımı ve spa deneyimi"
+          title="Cilt Bakımı & Güzellik"
+          subtitle="Profesyonel cilt bakımı ve güzellik deneyimi"
           reversed
         />
 
         <Gallery />
 
-        {/* Promo 4: Spa */}
+        {/* Promo 4: Kalıcı Makyaj Paketi */}
         <PromoBanner
           variant="gradient"
           icon="sparkle"
-          title="Spa & Wellness Paketi"
-          subtitle="Full spa deneyimi + çay ikramı + 1 saat masaj."
+          title="Kalıcı Makyaj Paketi"
+          subtitle="Kaş + Dudak birlikte %25 indirim"
           cta="Rezervasyon Yap"
         />
 
@@ -107,7 +107,7 @@ export default function Home() {
             '/images/beauty/gallery-hair.jpg',
           ]}
           title="Merkezimiz"
-          subtitle="Lüks ve konforlu ortamımızda kendinizi özel hissedin"
+          subtitle="VIP ve konforlu ortamımızda kendinizi özel hissedin"
         />
 
         <Booking />

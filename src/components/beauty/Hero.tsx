@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronDown, Sparkles, Phone, Navigation, Clock, Star, MapPin, MessageCircle, ExternalLink, Mail } from 'lucide-react';
+import { ChevronDown, Sparkles, Phone, Navigation, Clock, MapPin, MessageCircle, ExternalLink } from 'lucide-react';
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
@@ -101,7 +101,7 @@ export default function Hero() {
         className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
         style={{ scale: contentScale }}
       >
-        {/* Rating badge */}
+        {/* Open badge */}
         <motion.div
           initial={{ opacity: 0, y: -20, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -109,12 +109,9 @@ export default function Hero() {
           className="mb-4"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white text-xs tracking-wider">
-            <Star className="w-3.5 h-3.5 text-gold-beauty fill-gold-beauty" />
-            <span className="font-bold">4.7</span>
-            <span className="text-white/60">•</span>
-            <span className="text-white/60">1.172 yorum</span>
-            <span className="text-white/60">•</span>
             <span className="text-green-300 text-[10px] font-medium">● Açık</span>
+            <span className="text-white/60">•</span>
+            <span className="text-white/60">VIP Güzellik Deneyimi</span>
           </span>
         </motion.div>
 
@@ -126,7 +123,7 @@ export default function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            İpek Özmel
+            Ayşe Nur Karcı
           </motion.h1>
         </div>
         <div className="overflow-hidden mb-4">
@@ -136,7 +133,7 @@ export default function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <span className="shimmer-text-rose">Güzellik Merkezi</span>
+            <span className="shimmer-text-rose">Beauty Vip</span>
           </motion.h2>
         </div>
 
@@ -147,16 +144,16 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
         >
-          Aksaray&apos;ın kalbinde {' '}
+          Pursaklar/Ankara&apos;da {' '}
           <motion.span
             className="text-gold-beauty font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.6 }}
           >
-            25+ yıl
+            VIP
           </motion.span>
-          {' '}deneyim ile profesyonel güzellik hizmetleri
+          {' '}güzellik deneyimi
         </motion.p>
 
         {/* CTA Buttons Row */}
@@ -185,7 +182,7 @@ export default function Hero() {
 
           {/* Ara */}
           <motion.a
-            href="tel:05326730668"
+            href="tel:05335701208"
             className="flex items-center gap-2 px-8 py-3.5 border-2 border-white/30 text-white font-semibold text-sm uppercase tracking-wider rounded-full hover:bg-white/10 hover:border-white/50 transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -196,7 +193,7 @@ export default function Hero() {
 
           {/* WhatsApp */}
           <motion.a
-            href="https://wa.me/905326730668"
+            href="https://wa.me/905335701208"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3.5 bg-green-500/90 text-white font-semibold text-sm uppercase tracking-wider rounded-full hover:bg-green-500 transition-colors shadow-lg shadow-green-500/20"
@@ -205,17 +202,6 @@ export default function Hero() {
           >
             <MessageCircle className="w-4 h-4" />
             WhatsApp
-          </motion.a>
-
-          {/* Email */}
-          <motion.a
-            href="mailto:ipekozmelresmi@gmail.com"
-            className="flex items-center gap-2 px-6 py-3.5 bg-purple-500/90 text-white font-semibold text-sm uppercase tracking-wider rounded-full hover:bg-purple-500 transition-colors shadow-lg shadow-purple-500/20"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Mail className="w-4 h-4" />
-            E-Posta
           </motion.a>
         </motion.div>
 
@@ -231,7 +217,7 @@ export default function Hero() {
             whileHover={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
           >
             <MapPin className="w-3 h-3 text-rose" />
-            Taşpazar, Aksaray
+            Saray Cumhuriyet, Pursaklar/Ankara
           </motion.div>
           <motion.div
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white/70 text-[11px]"
@@ -241,7 +227,7 @@ export default function Hero() {
             09:00 – 21:00 (Her Gün)
           </motion.div>
           <motion.a
-            href="https://maps.google.com/?q=İpek+Özmel+Güzellik+Merkezi+Aksaray"
+            href="https://maps.google.com/?q=Ayşe+Nur+Karcı+Beauty+Vip+Pursaklar+Ankara"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white/70 text-[11px] hover:bg-white/20 transition-colors"
@@ -264,7 +250,7 @@ export default function Hero() {
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3 sm:gap-4">
             {/* Map Mini */}
             <motion.a
-              href="https://maps.google.com/?q=İpek+Özmel+Güzellik+Merkezi+Aksaray"
+              href="https://maps.google.com/?q=Ayşe+Nur+Karcı+Beauty+Vip+Pursaklar+Ankara"
               target="_blank"
               rel="noopener noreferrer"
               className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden flex-shrink-0 border border-rose/10 bg-gradient-to-br from-rose/10 to-gold-beauty/10 flex items-center justify-center group"
@@ -275,8 +261,8 @@ export default function Hero() {
 
             {/* Info */}
             <div className="flex-1 min-w-0">
-              <h4 className="text-sm font-bold text-plum truncate">İpek Özmel Güzellik Merkezi</h4>
-              <p className="text-[11px] text-plum/50 truncate">Taşpazar, Şehit Teğmen Yalçın Sokak 10/A D:24, Aksaray</p>
+              <h4 className="text-sm font-bold text-plum truncate">Ayşe Nur Karcı Beauty Vip</h4>
+              <p className="text-[11px] text-plum/50 truncate">Saray Cumhuriyet, Edebali Sk. No:6/C, Pursaklar/Ankara</p>
               <div className="flex items-center gap-3 mt-1">
                 <span className="flex items-center gap-1 text-[10px] text-plum/40">
                   <Clock className="w-2.5 h-2.5" />
@@ -292,7 +278,7 @@ export default function Hero() {
             {/* Quick action buttons */}
             <div className="flex items-center gap-2 flex-shrink-0">
               <motion.a
-                href="tel:05326730668"
+                href="tel:05335701208"
                 className="w-10 h-10 rounded-full bg-rose text-white flex items-center justify-center shadow-md shadow-rose/20"
                 whileHover={{ scale: 1.1, boxShadow: '0 8px 20px rgba(232,160,191,0.4)' }}
                 whileTap={{ scale: 0.9 }}
@@ -300,7 +286,7 @@ export default function Hero() {
                 <Phone className="w-4 h-4" />
               </motion.a>
               <motion.a
-                href="https://wa.me/905326730668"
+                href="https://wa.me/905335701208"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-md shadow-green-500/20"
@@ -310,7 +296,7 @@ export default function Hero() {
                 <MessageCircle className="w-4 h-4" />
               </motion.a>
               <motion.a
-                href="https://maps.google.com/?q=İpek+Özmel+Güzellik+Merkezi+Aksaray"
+                href="https://maps.google.com/?q=Ayşe+Nur+Karcı+Beauty+Vip+Pursaklar+Ankara"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:flex w-10 h-10 rounded-full bg-plum text-white items-center justify-center shadow-md shadow-plum/20"

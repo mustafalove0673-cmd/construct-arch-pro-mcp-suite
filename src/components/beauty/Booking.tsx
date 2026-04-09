@@ -5,17 +5,17 @@ import { useRef, useState } from 'react';
 import { Flower2, Sparkles, Check, Calendar, Clock, User, Phone, MapPin, FileText } from 'lucide-react';
 
 const serviceOptions = [
-  'Saç Bakım & Kesim',
+  'Buz Epilasyon',
   'Cilt Bakımı',
-  'Profesyonel Makyaj',
-  'Nail Art & Manikür',
-  'Spa & Masaj',
-  'Saç Boyama',
+  'Bölgesel İncelme',
+  'Kalıcı Makyaj',
+  'Protez Tırnak',
+  'Saç Bakım & Kesim',
 ];
 
 const specialistOptions = [
   'Herhangi Biri',
-  'Aylin Hanım',
+  'Ayşe Hanım',
   'Deniz Hanım',
   'Elif Hanım',
   'Gül Hanım',
@@ -91,7 +91,7 @@ export default function Booking() {
             </h2>
 
             <p className="text-plum/50 text-base sm:text-lg leading-relaxed mb-8">
-              Güzelliğinize yatırım yapmanın tam zamanı. Online randevu formumuzu doldurun, sizi arayalım.
+              Ayşe Nur Karcı Beauty Vip&apos;te güzelliğinize yatırım yapmanın tam zamanı. Online randevu formumuzu doldurun, sizi arayalım.
             </p>
 
             <motion.div
@@ -106,9 +106,9 @@ export default function Booking() {
             {/* Info cards */}
             <div className="space-y-4">
               {[
-                { icon: Phone, text: '0532 673 06 68' },
+                { icon: Phone, text: '0533 570 12 08' },
                 { icon: Clock, text: 'Her Gün: 09:00 – 21:00' },
-                { icon: MapPin, text: 'Taşpazar, Aksaray' },
+                { icon: MapPin, text: 'Saray Cumhuriyet, Pursaklar/Ankara' },
               ].map((item, i) => (
                 <motion.div
                   key={item.text}

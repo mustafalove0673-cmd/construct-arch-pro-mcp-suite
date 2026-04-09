@@ -2,7 +2,7 @@
 
 import { motion, useInView, useMotionValue, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { Flower2, Award, Users, Heart, Star } from 'lucide-react';
+import { Flower2, Award, Users, Heart, Star, Gem } from 'lucide-react';
 
 function AnimatedCounter({ target, duration = 2, suffix = '' }: { target: number; duration?: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -34,9 +34,9 @@ function AnimatedCounter({ target, duration = 2, suffix = '' }: { target: number
 }
 
 const stats = [
-  { icon: Award, value: 25, suffix: '+', label: 'Yıl Deneyim' },
-  { icon: Users, value: 15000, suffix: '+', label: 'Mutlu Müşteri' },
-  { icon: Heart, value: 50, suffix: '+', label: 'Uzman' },
+  { icon: Award, value: 10, suffix: '+', label: 'Yıl Deneyim' },
+  { icon: Users, value: 5000, suffix: '+', label: 'Mutlu Müşteri' },
+  { icon: Gem, value: 5, suffix: '+', label: 'Uzman Hizmet' },
   { icon: Star, value: 98, suffix: '%', label: 'Memnuniyet' },
 ];
 
@@ -84,7 +84,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
               <motion.img
                 src="/images/beauty/interior-reception.jpg"
-                alt="Lumière Beauty Merkezimiz"
+                alt="Ayşe Nur Karcı Beauty Vip Merkezimiz"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.6 }}
@@ -107,7 +107,7 @@ export default function About() {
               />
             ))}
 
-            {/* Experience Badge */}
+            {/* VIP Badge */}
             <motion.div
               className="absolute -bottom-3 -right-3 bg-gradient-to-br from-rose to-rose-dark text-white px-4 py-2.5 rounded-xl shadow-lg"
               initial={{ scale: 0, rotate: -15 }}
@@ -115,8 +115,8 @@ export default function About() {
               transition={{ delay: 0.8, type: 'spring', stiffness: 200, damping: 15 }}
               whileHover={{ scale: 1.1, rotate: -5 }}
             >
-              <span className="text-2xl font-bold block leading-none">25+</span>
-              <span className="text-[10px] uppercase tracking-wider opacity-90">Yıl</span>
+              <span className="text-lg font-bold block leading-none">VIP</span>
+              <span className="text-[10px] uppercase tracking-wider opacity-90">Beauty</span>
             </motion.div>
           </motion.div>
 
@@ -152,7 +152,7 @@ export default function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.7 }}
             >
-              25 yılı aşkın deneyimimizle, her kadın için eşsiz güzellik deneyimleri sunuyoruz. Son teknoloji ürünler ve uzman ekibimizle kendinizi özel hissedin.
+              Ayşe Nur Karcı Beauty Vip olarak Pursaklar/Ankara&apos;da VIP güzellik deneyimi sunuyoruz. Buz epilasyon, cilt bakımı, bölgesel incelme, kalıcı makyaj ve protez tırnak hizmetlerimizle kendinizi özel hissedin.
             </motion.p>
 
             <motion.div

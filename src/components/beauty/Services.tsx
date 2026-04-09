@@ -2,50 +2,50 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Scissors, Sparkles, Palette, Heart, Flower2, Droplets, Check } from 'lucide-react';
+import { Scissors, Sparkles, Palette, Heart, Flower2, Snowflake, Target, Gem, Check } from 'lucide-react';
 
 const services = [
   {
-    icon: Scissors,
-    title: 'Saç Bakım & Kesim',
-    desc: 'Profesyonel kesim ve bakım.',
-    price: '₺150',
-    features: ['Kesim', 'Fön', 'Örgü'],
-  },
-  {
-    icon: Droplets,
-    title: 'Cilt Bakımı',
-    desc: 'Cildinize özel protokol.',
-    price: '₺250',
-    features: ['Hydrafacial', 'Peeling'],
-  },
-  {
-    icon: Palette,
-    title: 'Profesyonel Makyaj',
-    desc: 'Özel gün makyajı.',
-    price: '₺300',
-    features: ['Gelin', 'Davet', 'Günlük'],
-  },
-  {
-    icon: Heart,
-    title: 'Nail Art & Manikür',
-    desc: 'Sanatsal tasarım.',
-    price: '₺120',
-    features: ['Jel', 'Nail Art', 'Pedikür'],
-  },
-  {
-    icon: Flower2,
-    title: 'Spa & Masaj',
-    desc: 'Derin rahatlama.',
-    price: '₺350',
-    features: ['Aromaterapi', 'Hot Stone'],
+    icon: Snowflake,
+    title: 'Buz Epilasyon',
+    desc: 'Ağrısız ve etkili epilasyon.',
+    price: '₺200',
+    features: ['Buz Epilasyon', 'Lazer Destekli', 'Tüm Bölgeler'],
   },
   {
     icon: Sparkles,
-    title: 'Saç Boyama',
-    desc: 'Kalıcı renk uygulamaları.',
-    price: '₺200',
-    features: ['Sıfır', 'Ombre', 'Balyaj'],
+    title: 'Cilt Bakımı',
+    desc: 'Profesyonel cilt tedavisi.',
+    price: '₺300',
+    features: ['Hydrafacial', 'Anti-Aging', 'Leke Tedavisi'],
+  },
+  {
+    icon: Target,
+    title: 'Bölgesel İncelme',
+    desc: 'Modern incelme teknolojileri.',
+    price: '₺400',
+    features: ['Radyofrekans', 'Ultrason', 'Kavitasyon'],
+  },
+  {
+    icon: Palette,
+    title: 'Kalıcı Makyaj',
+    desc: 'Doğal ve kalıcı güzellik.',
+    price: '₺500',
+    features: ['Kaş', 'Dudak', 'Eyeliner'],
+  },
+  {
+    icon: Gem,
+    title: 'Protez Tırnak',
+    desc: 'Zarif ve sağlıklı tırnaklar.',
+    price: '₺250',
+    features: ['Jel', 'Akrilik', 'Nail Art'],
+  },
+  {
+    icon: Scissors,
+    title: 'Saç Bakım & Kesim',
+    desc: 'Profesyonel saç tasarımı.',
+    price: '₺150',
+    features: ['Kesim', 'Fön', 'Boyama'],
   },
 ];
 
@@ -136,7 +136,7 @@ export default function Services() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <span className="shimmer-text-rose">Premium</span> Hizmetler
+            <span className="shimmer-text-rose">VIP</span> Hizmetler
           </motion.h2>
 
           <motion.div

@@ -4,21 +4,21 @@ import { Flower2 } from 'lucide-react';
 
 const words = [
   'Güzellik',
-  'Bakım',
-  'Şıklık',
+  'VIP',
+  'Buz Epilasyon',
+  'Cilt Bakımı',
+  'Bölgesel İncelme',
+  'Kalıcı Makyaj',
+  'Protez Tırnak',
   'Lüks',
   'Elegance',
-  'Spa',
-  'Makyaj',
-  'Saç Bakımı',
-  'Cilt Bakımı',
-  'Manikür',
-  'Masaj',
-  'Rahatlama',
   'Premium',
   'Pürüzsüz',
   'Işıltılı',
   'Zarafet',
+  'Saç Bakımı',
+  'Rahatlama',
+  'Nail Art',
 ];
 
 export default function Marquee() {

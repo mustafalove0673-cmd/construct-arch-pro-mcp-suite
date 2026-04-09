@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Flower2, Heart, ArrowUp, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Flower2, Heart, ArrowUp, Instagram, Facebook, Phone, MapPin, Clock, Star, Navigation, MessageCircle } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Ana Sayfa', href: '#anasayfa' },
@@ -12,13 +12,7 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  'Saç Bakım', 'Cilt Bakımı', 'Makyaj', 'Nail Art', 'Spa', 'Boya',
-];
-
-const socialLinks = [
-  { icon: Instagram, label: 'Instagram' },
-  { icon: Facebook, label: 'Facebook' },
-  { icon: Twitter, label: 'Twitter' },
+  'Saç Bakım', 'Cilt Bakımı', 'Makyaj', 'Nail Art', 'Spa & Masaj', 'Saç Boyama',
 ];
 
 export default function Footer() {
@@ -39,9 +33,9 @@ export default function Footer() {
         transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {/* Logo */}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          {/* Logo & Info */}
           <div>
             <motion.a
               href="#anasayfa"
@@ -57,32 +51,73 @@ export default function Footer() {
                 <Flower2 className="w-4 h-4 text-rose" />
               </motion.div>
               <div>
-                <span className="shimmer-text-rose font-bold text-lg block leading-tight">Lumière</span>
-                <span className="text-rose/40 text-[9px] tracking-[0.2em] uppercase">Beauty Center</span>
+                <span className="shimmer-text-rose font-bold text-base block leading-tight">İpek Özmel</span>
+                <span className="text-rose/40 text-[9px] tracking-[0.2em] uppercase">Güzellik Merkezi</span>
               </div>
             </motion.a>
-            <p className="text-white/35 text-xs leading-relaxed mb-4">
-              25+ yıl deneyim. Premium güzellik hizmeti.
+
+            {/* Rating */}
+            <div className="flex items-center gap-1.5 mb-3">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className={`w-3 h-3 ${i < 5 ? 'text-gold-beauty fill-gold-beauty' : 'text-white/20'}`} />
+                ))}
+              </div>
+              <span className="text-xs text-white/50">4.7 (1.172 yorum)</span>
+            </div>
+
+            <p className="text-white/35 text-xs leading-relaxed mb-3">
+              Aksaray&apos;ın güvenilir güzellik merkezi. 25+ yıl profesyonel deneyim.
             </p>
+
+            {/* Quick action buttons */}
             <div className="flex gap-2">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href="#"
-                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-rose hover:border-rose/30 hover:bg-rose/10 transition-all"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-3.5 h-3.5" />
-                </motion.a>
-              ))}
+              <motion.a
+                href="tel:05326730668"
+                className="w-8 h-8 rounded-lg bg-rose/20 border border-rose/20 flex items-center justify-center text-rose hover:bg-rose/30 transition-all"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Ara"
+              >
+                <Phone className="w-3.5 h-3.5" />
+              </motion.a>
+              <motion.a
+                href="https://wa.me/905326730668"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-green-500/20 border border-green-500/20 flex items-center justify-center text-green-400 hover:bg-green-500/30 transition-all"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+              </motion.a>
+              <motion.a
+                href="https://maps.google.com/?q=İpek+Özmel+Güzellik+Merkezi+Aksaray"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-rose hover:border-rose/30 transition-all"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Harita"
+              >
+                <Navigation className="w-3.5 h-3.5" />
+              </motion.a>
+              <motion.a
+                href="#"
+                className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-rose hover:border-rose/30 transition-all"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Instagram"
+              >
+                <Instagram className="w-3.5 h-3.5" />
+              </motion.a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-white/70 uppercase tracking-wider text-xs mb-3 flex items-center gap-2">
+            <h4 className="font-bold text-white/70 uppercase tracking-wider text-[11px] mb-3 flex items-center gap-2">
               <div className="w-5 h-px bg-rose" />
               Linkler
             </h4>
@@ -103,7 +138,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-white/70 uppercase tracking-wider text-xs mb-3 flex items-center gap-2">
+            <h4 className="font-bold text-white/70 uppercase tracking-wider text-[11px] mb-3 flex items-center gap-2">
               <div className="w-5 h-px bg-rose" />
               Hizmetler
             </h4>
@@ -122,48 +157,50 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-white/70 uppercase tracking-wider text-xs mb-3 flex items-center gap-2">
+            <h4 className="font-bold text-white/70 uppercase tracking-wider text-[11px] mb-3 flex items-center gap-2">
               <div className="w-5 h-px bg-rose" />
               İletişim
             </h4>
-            <ul className="space-y-2 text-xs text-white/35">
+            <ul className="space-y-2.5 text-xs text-white/35">
               <li className="flex items-start gap-1.5">
-                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
-                Bağdat Cad. No: 42, Kadıköy
+                <MapPin className="w-3 h-3 text-rose/60 flex-shrink-0 mt-0.5" />
+                Taşpazar, Şht. Tğm. Yalçın Sk. 10/A D:24, Aksaray
               </li>
               <li className="flex items-start gap-1.5">
-                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
-                0212 555 12 34
+                <Phone className="w-3 h-3 text-rose/60 flex-shrink-0 mt-0.5" />
+                <motion.a href="tel:05326730668" className="hover:text-rose transition-colors">
+                  0532 673 06 68
+                </motion.a>
               </li>
               <li className="flex items-start gap-1.5">
-                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
-                info@lumierebeauty.com
+                <Clock className="w-3 h-3 text-rose/60 flex-shrink-0 mt-0.5" />
+                Her gün 09:00 – 21:00
               </li>
               <li className="flex items-start gap-1.5">
-                <span className="mt-1 w-1 h-1 rounded-full bg-rose flex-shrink-0" />
-                Pzt - Cmt: 09:00 - 19:00
+                <Star className="w-3 h-3 text-gold-beauty/60 flex-shrink-0 mt-0.5" />
+                <span className="text-gold-beauty/60">4.7 puan • 1.172 yorum</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar - compact */}
+      {/* Bottom bar */}
       <div className="border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <p className="text-white/20 text-[11px] flex items-center gap-1">
-            © 2024 Lumière Beauty. <Heart className="w-2.5 h-2.5 text-rose/30 inline" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+          <p className="text-white/20 text-[10px] flex items-center gap-1">
+            © 2024 İpek Özmel Güzellik Merkezi. <Heart className="w-2 h-2 text-rose/30 inline" />
           </p>
           <motion.button
-            className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/35 hover:text-rose hover:border-rose/30 transition-all"
+            className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/35 hover:text-rose hover:border-rose/30 transition-all"
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Yukarı"
           >
-            <ArrowUp className="w-3.5 h-3.5" />
+            <ArrowUp className="w-3 h-3" />
           </motion.button>
         </div>
       </div>

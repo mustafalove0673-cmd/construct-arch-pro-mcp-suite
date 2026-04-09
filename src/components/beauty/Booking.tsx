@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Flower2, Sparkles, Check, Calendar, Clock, User, Phone, Mail, FileText } from 'lucide-react';
+import { Flower2, Sparkles, Check, Calendar, Clock, User, Phone, MapPin, FileText } from 'lucide-react';
 
 const serviceOptions = [
   'Saç Bakım & Kesim',
@@ -23,8 +23,9 @@ const specialistOptions = [
 
 const timeOptions = [
   '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-  '13:00', '13:30', '14:00', '14:30', '15:00', '15:30',
-  '16:00', '16:30', '17:00', '17:30',
+  '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+  '15:00', '15:30', '16:00', '16:30', '17:00', '17:30',
+  '18:00', '18:30', '19:00', '19:30', '20:00', '20:30',
 ];
 
 export default function Booking() {
@@ -105,9 +106,9 @@ export default function Booking() {
             {/* Info cards */}
             <div className="space-y-4">
               {[
-                { icon: Phone, text: '0212 555 12 34' },
-                { icon: Clock, text: 'Pazartesi - Cumartesi: 09:00 - 19:00' },
-                { icon: Mail, text: 'info@lumierebeauty.com' },
+                { icon: Phone, text: '0532 673 06 68' },
+                { icon: Clock, text: 'Her Gün: 09:00 – 21:00' },
+                { icon: MapPin, text: 'Taşpazar, Aksaray' },
               ].map((item, i) => (
                 <motion.div
                   key={item.text}
@@ -221,7 +222,7 @@ export default function Booking() {
                       transition={{ delay: 0.5 }}
                     >
                       <label className="flex items-center gap-2 text-xs font-medium text-plum/60 mb-2 uppercase tracking-wider">
-                        <Mail className="w-3 h-3" /> E-posta
+                        <FileText className="w-3 h-3" /> E-posta (isteğe bağlı)
                       </label>
                       <input
                         type="email"

@@ -2,5 +2,9 @@
   "framework": "nextjs",
   "buildCommand": "next build",
   "installCommand": "npm install",
-  "outputDirectory": ".next"
+  "devCommand": "next dev -p 3000",
+  "outputDirectory": ".next",
+  "git": {
+    "deploymentEnabled": true
+  }
 }

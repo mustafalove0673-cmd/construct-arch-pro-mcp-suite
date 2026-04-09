@@ -83,8 +83,8 @@ export default function About() {
             />
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
               <motion.img
-                src="/images/beauty/about.jpg"
-                alt="Lumière Beauty"
+                src="/images/beauty/interior-reception.jpg"
+                alt="Lumière Beauty Merkezimiz"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.6 }}

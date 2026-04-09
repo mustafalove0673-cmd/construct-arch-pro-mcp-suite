@@ -14,6 +14,7 @@ import Contact from '@/components/beauty/Contact';
 import Footer from '@/components/beauty/Footer';
 import FloatingDecorations from '@/components/beauty/FloatingDecorations';
 import PromoBanner from '@/components/beauty/PromoBanner';
+import ImageShowcase from '@/components/beauty/ImageShowcase';
 
 export default function Home() {
   return (
@@ -31,6 +32,16 @@ export default function Home() {
           title="İlk Ziyaretinize %20 İndirim!"
           subtitle="Yeni müşterilerimize özel hoş geldin fırsatı."
           cta="Hemen Faydalan"
+        />
+
+        {/* Nail Art Görsel Vitrin */}
+        <ImageShowcase
+          images={[
+            '/images/beauty/nail-art-blue.jpg',
+            '/images/beauty/nail-art-pink.jpg',
+          ]}
+          title="Nail Art Tasarımları"
+          subtitle="Sanatsal ve özgün tırnak tasarımları"
         />
 
         <About />
@@ -55,6 +66,17 @@ export default function Home() {
           cta="Üye Ol"
         />
 
+        {/* Spa & Cilt Bakımı Görselleri */}
+        <ImageShowcase
+          images={[
+            '/images/beauty/gallery-spa.jpg',
+            '/images/beauty/gallery-makeup.jpg',
+          ]}
+          title="Spa & Güzellik"
+          subtitle="Profesyonel cilt bakımı ve spa deneyimi"
+          reversed
+        />
+
         <Gallery />
 
         {/* Promo 4: Spa */}
@@ -76,6 +98,16 @@ export default function Home() {
           title="Arkadaşını Getir, Kazan!"
           subtitle="Her arkadaş daveti için 100₺ indirim kazanın."
           cta="Davet Et"
+        />
+
+        {/* Merkezimiz Görseli */}
+        <ImageShowcase
+          images={[
+            '/images/beauty/interior-reception.jpg',
+            '/images/beauty/gallery-hair.jpg',
+          ]}
+          title="Merkezimiz"
+          subtitle="Lüks ve konforlu ortamımızda kendinizi özel hissedin"
         />
 
         <Booking />

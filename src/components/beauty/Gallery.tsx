@@ -2,26 +2,32 @@
 
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useCallback } from 'react';
-import { X, ZoomIn, Flower2 } from 'lucide-react';
+import { X, ZoomIn, Flower2, ExternalLink } from 'lucide-react';
 
 const galleryItems = [
-  { src: '/images/beauty/gallery1.jpg', title: 'Saç Bakımı' },
-  { src: '/images/beauty/gallery2.jpg', title: 'Nail Art' },
-  { src: '/images/beauty/gallery3.jpg', title: 'Spa & Cilt' },
-  { src: '/images/beauty/gallery4.jpg', title: 'Makyaj' },
-  { src: '/images/beauty/gallery5.jpg', title: 'Saç Boyama' },
-  { src: '/images/beauty/gallery6.jpg', title: 'Masaj Terapi' },
+  { src: '/images/beauty/gallery-hair.jpg', title: 'Saç Boyama', category: 'saç' },
+  { src: '/images/beauty/nail-art-blue.jpg', title: 'Nail Art - Mavi', category: 'tırnak' },
+  { src: '/images/beauty/gallery-spa.jpg', title: 'Spa & Cilt Bakımı', category: 'spa' },
+  { src: '/images/beauty/nail-art-pink.jpg', title: 'Jel Tırnak', category: 'tırnak' },
+  { src: '/images/beauty/gallery-makeup.jpg', title: 'Profesyonel Makyaj', category: 'makyaj' },
+  { src: '/images/beauty/nail-art-purple.jpg', title: 'Tırnak Tasarım', category: 'tırnak' },
+  { src: '/images/beauty/gallery-nails.jpg', title: 'Manikür & Pedikür', category: 'tırnak' },
+  { src: '/images/beauty/nail-art-hearts.jpg', title: 'Nail Art - Kalpler', category: 'tırnak' },
+  { src: '/images/beauty/gel-nail-application.jpg', title: 'Gel Tırnak Uygulama', category: 'tırnak' },
+  { src: '/images/beauty/interior-reception.jpg', title: 'Merkezimiz', category: 'merkez' },
+  { src: '/images/beauty/gallery1.jpg', title: 'Saç Bakımı', category: 'saç' },
+  { src: '/images/beauty/gallery2.jpg', title: 'Styling', category: 'saç' },
 ];
 
 function GalleryItem({ item, index, onClick }: { item: typeof galleryItems[0]; index: number; onClick: () => void }) {
   return (
     <motion.div
       className="relative group cursor-pointer rounded-xl overflow-hidden"
-      initial={{ opacity: 0, scale: 0.85 }}
+      initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ delay: index * 0.08, duration: 0.5, type: 'spring' }}
-      whileHover={{ y: -4 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ delay: index * 0.06, duration: 0.5, type: 'spring', stiffness: 120 }}
+      whileHover={{ y: -4, zIndex: 5 }}
       onClick={onClick}
     >
       <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
@@ -31,30 +37,36 @@ function GalleryItem({ item, index, onClick }: { item: typeof galleryItems[0]; i
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.5 }}
+          loading="lazy"
         />
 
         {/* Dark overlay on hover */}
         <motion.div
-          className="absolute inset-0 bg-plum/0 group-hover:bg-plum/50 flex items-center justify-center transition-colors duration-400"
+          className="absolute inset-0 bg-plum/0 group-hover:bg-plum/50 flex items-center justify-center transition-all duration-400"
         >
           <motion.div
             className="flex flex-col items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-400"
           >
-            <span className="text-white font-bold text-sm">{item.title}</span>
+            <span className="text-white font-bold text-xs sm:text-sm">{item.title}</span>
             <motion.div
-              className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center"
+              className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center"
               initial={{ rotate: 90, scale: 0 }}
               whileInView={{ rotate: 0, scale: 1 }}
               transition={{ type: 'spring', stiffness: 200 }}
             >
-              <ZoomIn className="w-4 h-4 text-white" />
+              <ZoomIn className="w-3.5 h-3.5 text-white" />
             </motion.div>
           </motion.div>
         </motion.div>
 
+        {/* Category badge */}
+        <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-white/80 backdrop-blur-sm text-[9px] font-medium text-plum/70 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {item.category}
+        </div>
+
         {/* Corner accents */}
-        <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-gold-beauty/0 group-hover:border-gold-beauty/60 transition-colors duration-400 rounded-tl-md" />
-        <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-gold-beauty/0 group-hover:border-gold-beauty/60 transition-colors duration-400 rounded-br-md" />
+        <div className="absolute top-2 right-2 w-3 h-3 border-t border-r border-gold-beauty/0 group-hover:border-gold-beauty/60 transition-colors duration-400 rounded-tr-md" />
+        <div className="absolute bottom-2 left-2 w-3 h-3 border-b border-l border-gold-beauty/0 group-hover:border-gold-beauty/60 transition-colors duration-400 rounded-bl-md" />
       </div>
     </motion.div>
   );
@@ -139,6 +151,24 @@ export default function Gallery() {
               whileTap={{ scale: 0.9 }}
             >
               <X className="w-5 h-5" />
+            </motion.button>
+
+            {/* Nav arrows */}
+            <motion.button
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
+              onClick={(e) => { e.stopPropagation(); setLightbox(lightbox > 0 ? lightbox - 1 : galleryItems.length - 1); }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <span className="text-xl">‹</span>
+            </motion.button>
+            <motion.button
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
+              onClick={(e) => { e.stopPropagation(); setLightbox(lightbox < galleryItems.length - 1 ? lightbox + 1 : 0); }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <span className="text-xl">›</span>
             </motion.button>
 
             <motion.div

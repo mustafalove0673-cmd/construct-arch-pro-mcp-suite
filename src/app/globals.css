@@ -41,53 +41,33 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
-  --color-navy-mid: var(--navy-mid);
-  --color-navy-surface: var(--navy-surface);
-  --color-navy-elevated: var(--navy-elevated);
-  --color-coral: var(--coral);
-  --color-coral-light: var(--coral-light);
-  --color-coral-dark: var(--coral-dark);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: #0f1b2d;
-  --foreground: #F0F4FF;
-  --card: #1e3455;
-  --card-foreground: #F0F4FF;
-  --popover: #1a2d4a;
-  --popover-foreground: #F0F4FF;
-  --primary: #FF6B6B;
-  --primary-foreground: #ffffff;
-  --secondary: #162544;
-  --secondary-foreground: #F0F4FF;
-  --muted: #243d5e;
-  --muted-foreground: #8BA3C4;
-  --accent: #FFD43B;
-  --accent-foreground: #0f1b2d;
+  --background: #0A0A0A;
+  --foreground: #F5F0E8;
+  --card: #111111;
+  --card-foreground: #F5F0E8;
+  --popover: #111111;
+  --popover-foreground: #F5F0E8;
+  --primary: #C8A951;
+  --primary-foreground: #0A0A0A;
+  --secondary: #151515;
+  --secondary-foreground: #F5F0E8;
+  --muted: #1A1A1A;
+  --muted-foreground: #8B8070;
+  --accent: #C8A951;
+  --accent-foreground: #0A0A0A;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.1);
-  --ring: #FF6B6B;
-  --chart-1: #FF6B6B;
-  --chart-2: #FFD43B;
-  --chart-3: #162544;
-  --chart-4: #8BA3C4;
-  --chart-5: #1e3455;
-  --navy: #0f1b2d;
-  --navy-light: #162544;
-  --navy-mid: #1a2d4a;
-  --navy-surface: #1e3455;
-  --navy-elevated: #243d5e;
-  --coral: #FF6B6B;
-  --coral-light: #FF8787;
-  --coral-dark: #E05252;
-  --gold: #FFD43B;
-  --gold-light: #FFE066;
+  --border: rgba(200, 169, 81, 0.1);
+  --input: rgba(200, 169, 81, 0.1);
+  --ring: #C8A951;
+  --chart-1: #C8A951;
+  --chart-2: #E8D5A3;
+  --chart-3: #8B7D3C;
+  --chart-4: #F5F0E8;
+  --chart-5: #111111;
 }
 
 @layer base {
@@ -101,16 +81,22 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0f1b2d; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #FF6B6B, #FFD43B);
+  background: linear-gradient(180deg, #C8A951, #8B7D3C);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #E05252, #F0C000);
+  background: linear-gradient(180deg, #E8D5A3, #C8A951);
 }
 
 html { scroll-behavior: smooth; }
+
+/* Selection */
+::selection {
+  background: rgba(200, 169, 81, 0.3);
+  color: #F5F0E8;
+}
 
 /* ========== ANIMATIONS ========== */
 
@@ -124,20 +110,15 @@ html { scroll-behavior: smooth; }
   50% { transform: translateY(-15px); }
 }
 
-@keyframes pulse-glow-coral {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(255, 107, 107, 0.4); }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(200, 169, 81, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(200, 169, 81, 0.4); }
 }
 
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
 }
 
 @keyframes spin-slow {
@@ -150,24 +131,13 @@ html { scroll-behavior: smooth; }
   50% { opacity: 0.6; }
 }
 
-@keyframes border-flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 @keyframes fade-in-up {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.4); }
-}
-
 .shimmer-text-gold {
-  background: linear-gradient(90deg, #FFD43B 0%, #FFE066 30%, #FFD43B 50%, #FF6B6B 80%, #FFD43B 100%);
+  background: linear-gradient(90deg, #C8A951 0%, #E8D5A3 30%, #C8A951 50%, #F5F0E8 80%, #C8A951 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -175,66 +145,28 @@ html { scroll-behavior: smooth; }
   animation: shimmer-gold 4s linear infinite;
 }
 
-.shimmer-text-coral {
-  background: linear-gradient(90deg, #FF6B6B 0%, #FF8787 40%, #FFD43B 60%, #FF6B6B 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer-gold 3s linear infinite;
-}
-
 .float-slow { animation: float-slow 6s ease-in-out infinite; }
-.pulse-glow-coral { animation: pulse-glow-coral 3s ease-in-out infinite; }
+.pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .spin-slow { animation: spin-slow 20s linear infinite; }
 .glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
-.twinkle { animation: twinkle 3s ease-in-out infinite; }
-
-.marquee-scroll {
-  animation: marquee 30s linear infinite;
-}
 
 /* Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(200, 169, 81, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-dark {
-  background: rgba(15, 27, 45, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(200, 169, 81, 0.1);
 }
 
 /* Animated gradient background */
 .animated-gradient-bg {
-  background: linear-gradient(-45deg, #0f1b2d, #162544, #1a2d4a, #243d5e);
+  background: linear-gradient(-45deg, #0A0A0A, #0D0B08, #111111, #0D0D0D);
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
 }
 
-/* Gradient border animation */
-.gradient-border-flow {
-  background: linear-gradient(90deg, #FF6B6B, #FFD43B, #FF8787, #FFD43B, #FF6B6B);
-  background-size: 300% 300%;
-  animation: border-flow 4s ease infinite;
-}
-
-/* Ornamental divider */
-.ornament-divider {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-.ornament-divider::before,
-.ornament-divider::after {
-  content: '';
-  flex: 1;
+/* Gold line divider */
+.gold-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #FF6B6B, transparent);
+  background: linear-gradient(90deg, transparent, rgba(200, 169, 81, 0.3), transparent);
 }

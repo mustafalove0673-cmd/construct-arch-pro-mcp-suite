@@ -7,16 +7,16 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ayşe Nur Karcı Beauty Vip | Premium Güzellik Hizmetleri",
-  description: "Ayşe Nur Karcı Beauty Vip - Pursaklar/Ankara. Buz epilasyon, cilt bakımı, bölgesel incelme, kalıcı makyaj, protez tırnak.",
-  keywords: ["güzellik merkezi", "beauty salon", "buz epilasyon", "cilt bakımı", "bölgesel incelme", "kalıcı makyaj", "protez tırnak", "Pursaklar", "Ankara", "VIP güzellik"],
+  title: "ÜREKOL GÜ İNŞAAT | Premium Yapı & Mimari Projeler",
+  description: "ÜREKOL GÜ İNŞAAT - Türkiye'nin önde gelen inşaat şirketi. Konut, ticari, villa ve mimari projelerde 20+ yıllık tecrübe, kaliteli malzeme, zamanında teslimat.",
+  keywords: ["inşaat", "mimari", "konut", "villa", "ticari yapı", "proje", "Ürekol Gü", "yapı", "taşeron", "anahtar teslim"],
   icons: { icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f1b2d] text-[#F0F4FF] overflow-x-hidden`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0A0A0A] text-[#F5F0E8] overflow-x-hidden`}>
         {children}
         <Toaster />
       </body>
